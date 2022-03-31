@@ -1,0 +1,209 @@
+package trainig;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Main {
+
+	/*
+	 * --- 1 ---
+	 */
+	public static String hello(String name) {
+		name = name.trim();
+		name = "Hello " + name + "!";
+		return name;
+	}
+
+	/*
+	 * --- 2 ---
+	 */
+	public static String endUp(String s) {
+		String m;
+		if (s.length() >= 3) {
+			m = s.substring(s.length() - 3, s.length());
+			return s.substring(0, s.length() - 3) + m.toUpperCase();
+		} else
+			m = s.toUpperCase();
+		return m;
+	}
+
+	/*
+	 * public String endUp(String str) { //Correct
+	 * 
+	 * if (str.length()>=3){ StringBuilder sb = new StringBuilder(str); String Ustr
+	 * = sb.substring(str.length()-3,str.length()); return
+	 * sb.substring(0,str.length()-3)+Ustr.toUpperCase(); }else return
+	 * str.toUpperCase(); }
+	 */
+
+	/*
+	 * --- 3 ---
+	 */
+	public static String stringX(String s) {
+		String result = "";
+
+		int len = s.length();
+
+		for (int i = 0; i < len; i++) {
+
+			char temp = s.charAt(i);
+
+			if (!(i > 0 && i < len - 1 && temp == 'x'))
+
+				result = result + temp;
+
+		}
+
+		return result;
+	}
+
+	public static String stringXx(String str) {
+
+		if (str.length() <= 2)
+			return str;
+
+		char start = str.charAt(0);
+		char end = str.charAt(str.length() - 1);
+		str = str.substring(1, str.length() - 1).replace("x", "");
+		return start + str + end;
+	}
+
+	/*
+	 * Schreiben Sie eine Methode stringE(), die prüft, ob eine beliebige
+	 * Zeichenkette mindestens ein aber maximal drei 'E' beinhaltet. Die Prüfung
+	 * soll case-insensitiv erfolgen.
+	 */
+	public static boolean stringE(String s) {
+		for (int i = 0; i < s.length(); i++) {
+			if ("eE".indexOf(s.charAt(i)) >= 1) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static String makeTags(String tag, String content) {
+		return "<" + tag.toLowerCase().trim() + ">" + content.trim() + "<" + tag.toLowerCase().trim() + "/>";
+	}
+
+	public static boolean lastDigit(int a, int b) {
+		int modA = a % 10;
+		int modB = b % 10;
+		if (modA == modB)
+			return true;
+		else
+			return false;
+	}
+
+	public static boolean isArmstrong(int x) {
+
+		int number = x, originalNumber, remainder, result = 0;
+
+		originalNumber = number;
+
+		while (originalNumber != 0) {
+			remainder = originalNumber % 10;
+			result += Math.pow(remainder, 3);
+			originalNumber /= 10;
+		}
+
+		if (result == number) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public static int countArmstrongs(int n) {
+		return -1;
+	}
+
+	public static int rotate(int input2, String input1) {
+		int count = 0;
+		try {
+
+			String arr[] = input1.split(" ");
+			if (input1 != null && !input1.isEmpty()) {
+				for (int i = 0; i < arr.length; i++) {
+					System.out.println("Orginal Word :" + arr[i]);
+					int start = arr[i].length() - input2;
+					String s1 = arr[i].substring(start);
+					// System.out.println("s1 : " + s1);
+					String s2 = arr[i].substring(0, start);
+					// System.out.println("s2 : " + s2);
+					System.out.println("New Word : " + s1 + s2);
+					if ((s1 + s2).equals(arr[i])) {
+						count++;
+					}
+				}
+			}
+		} catch (Exception e) {
+			e.getStackTrace();
+		}
+		return count;
+	}
+
+	public static void main(String[] args) {
+
+		ArrayList l = new ArrayList();
+		/*
+		 * --- 1 ---
+		 */
+		String greet = hello("Max");
+		System.out.println(greet); // => "Hello Max!"
+		System.out.println(hello("Moritz")); // => "Hello Moritz!"
+
+		// Achten sie auf die Leerzeichen
+		System.out.println(hello("Maren ")); // => "Hello Maren!"
+		System.out.println(hello(" Tessa")); // => "Hello Tessa!"
+		System.out.println(hello("")); // => "Hello!" }
+
+		/*
+		 * --- 2 ---
+		 */
+		String result = endUp("Hello");
+		System.out.println(result); // => "HeLLO"
+		System.out.println(endUp("Hi there")); // => "Hi thERE"
+		System.out.println(endUp("hi")); // => "HI"
+		System.out.println("");
+
+		String result1 = stringX("xxHix");
+		System.out.println(result1); // => xHix
+		System.out.println(stringX("abxxxcd")); // => abcd
+		System.out.println(stringXx("xabxxxcdx")); // => xabcdx
+
+		boolean result2 = stringE("Earth");
+		System.out.println(result2); // => true
+		System.out.println(stringE("Nonsense")); // => true
+		System.out.println(stringE("This is nuts")); // => false
+		System.out.println(stringE("This example contains nonsense")); // => false
+
+		String result3 = makeTags("em", " Yay ");
+		System.out.println(result3); // => "<em>Yay</em>"
+		System.out.println(makeTags("CITE ", "Programmieren lernt man nur durch programmieren."));
+		// => "<cite>Programmieren lernt man nur durch programmieren.</cite>"
+		System.out.println(makeTags("", "No tags")); // => No tags
+		System.out.println();
+		boolean result4 = lastDigit(21, 12);
+		System.out.println(result4); // => false
+		System.out.println(lastDigit(121, 2001)); // => true
+		System.out.println(lastDigit(31111, 2001));
+		System.out.println();
+
+		boolean result5 = isArmstrong(153);
+		System.out.println(result5); // => true
+		System.out.println(isArmstrong(999)); // => false
+		System.out.println();
+
+		int n = countArmstrongs(100);
+		System.out.println(n); // => 10
+		System.out.println(countArmstrongs(153)); // => 11
+		System.out.println(countArmstrongs(1000)); // => 14
+
+		int result6 = rotate(2, "Hello");
+		System.out.println(result6); // => "loHel"
+		System.out.println(rotate(3, "Hello")); // => "lloHe"
+		System.out.println(rotate(6, "Hello")); // => "oHell"
+
+	}
+}
