@@ -69,4 +69,10 @@ public class Angestellte extends Person {
         return anrede;
     }
 
+    @Override
+    public String toString() {
+        return "[Angestellte" +
+                "gehalt=" + this.gehalt +
+                ']';
+    }
 }

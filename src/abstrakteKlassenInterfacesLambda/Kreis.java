@@ -5,16 +5,16 @@ import java.io.Serializable;
 public class Kreis implements IFigur, Serializable {
 
     /**
-     * Das serialVersionUID gibt die Identitaet der Klasse womit Kreis-Objekt als
-     * Objekt gespeichert werden.
+     * Das serialVersionUID gibt die Identität der Klasse
+     * womit Kreis-Objekt als Objekt gespeichert werden.
      */
     private static final long serialVersionUID = 1L;
     private double radius;
     private String farbe;
 
     /**
-     * erzeugt ein Kreis-Objekt mit dem angegebenen Radius.
-     * 
+     * erzeugt ein Kreis-Objekt mit dem angegebenen Radius
+     *
      * @param iRadius, der Radius
      */
 
@@ -24,9 +24,9 @@ public class Kreis implements IFigur, Serializable {
     }
 
     /**
-     * erzeugt ein Kreis-Objekt mit dem angegebenen Radius und der angegebenen
-     * Farbe.
-     * 
+     * erzeugt ein Kreis-Objekt mit dem angegebenen Radius
+     * und der angegebenen Farbe
+     *
      * @param iRadius, der Radius
      * @param farbe,   die Farbe als Zeichenkette
      */
@@ -51,6 +51,15 @@ public class Kreis implements IFigur, Serializable {
         final double pi = Math.PI;
         final double flaeche = Math.pow(radius, 2) * pi;
         return flaeche;
+    }
+
+    /**
+     * erhoeht den Radius.
+     *
+     * @param rate, die Rate um den Radius zu erhoehen.
+     */
+    public void radiusIncrease(double rate) {
+        this.radius += radius * rate;
     }
 
     @Override

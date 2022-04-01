@@ -6,7 +6,7 @@ package abstrakteKlassenInterfacesLambda;
  * Angestellter oder ein Kunde ist. Dies wird wiedergespiegelt mit dem Konzept
  * der abstrakten Klasse. Der gemeinsame Teil fuer Angestellter und Kunde ist in
  * der Klasse Person beinhaltet.
- * 
+ *
  * @author S. Kaltofen
  * @version 2.4
  */
@@ -16,7 +16,7 @@ public abstract class Person {
     // Instanzvariablen
     private String nachname, vorname, strasse, hausnummer, ort, plz;
     private boolean weiblich; // Ist Person maennlich=> weiblich=false,
-                              // ist sie weiblich: weiblich=true
+    // ist sie weiblich: weiblich=true
 
     /**
      * Parameterloser Konstruktor mit Initialisierung der Attribute mit
@@ -35,7 +35,7 @@ public abstract class Person {
     /**
      * Mit diesem Konstruktor erfolgt die Initialisierung der Attribute durch die
      * uebergebenen Parameter.
-     * 
+     *
      * @param nachname   Nachname der Person
      * @param vorname    Vorname der Person
      * @param strasse    Strasse zur Adresse der Person
@@ -45,7 +45,7 @@ public abstract class Person {
      * @param weiblich   Flag ob Person weiblich ist
      */
     public Person(String nachname, String vorname, String strasse, String hausnummer, String ort, String plz,
-            boolean weiblich) {
+                  boolean weiblich) {
         this.nachname = nachname;
         this.vorname = vorname;
         this.strasse = strasse;
@@ -58,7 +58,7 @@ public abstract class Person {
 
     /**
      * Getter des Attributes weiblich.
-     * 
+     *
      * @return ob die Person weiblich ist
      */
     public boolean isWeiblich() {
@@ -68,7 +68,7 @@ public abstract class Person {
     /**
      * gibt die Anrede zurueck. Diese Methode ist abstrakt und wird erst bei der
      * Weitervererbung (an Kunde und Angestellter) weiter definiert.
-     * 
+     *
      * @return die Anrede
      */
 
@@ -76,7 +76,7 @@ public abstract class Person {
 
     /**
      * Die Methode gibt die Adresse einer Person-Objekt zurück.
-     * 
+     *
      * @return die Adresse als ein Array von String-Objekte
      */
 
@@ -91,10 +91,23 @@ public abstract class Person {
 
     /**
      * Die Methode getName() gibt Vornamen und Nachnamen zurueck.
-     * 
+     *
      * @return Vorname gefolgt von " - " gefolgt vom Nachname
      */
     public String getName() {
         return vorname + " - " + nachname;
+    }
+
+    @Override
+    public String toString() {
+        return "[Person" +
+                "nachname='" + this.nachname +
+                ", vorname='" + this.vorname +
+                ", strasse='" + this.strasse +
+                ", hausnummer='" + this.hausnummer +
+                ", ort='" + this.ort +
+                ", plz='" + this.plz +
+                ", weiblich=" + this.weiblich +
+                ']';
     }
 }

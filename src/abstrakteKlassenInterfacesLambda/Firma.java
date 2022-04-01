@@ -8,7 +8,7 @@ package abstrakteKlassenInterfacesLambda;
  */
 public class Firma {
     // Array mit allen der Firma zugehoerigen Personen
-    private Person[] allePersonen;
+    protected Person[] allePersonen;
     // Maximale Anzahl von Personen fuer diese Firma
     private int groesseMax;
     // Name der Firma

@@ -1,5 +1,7 @@
 package abstrakteKlassenInterfacesLambda;
 
+import java.util.Arrays;
+
 /**
  * Klasse zum Testen des einfachen Firmen- Verwaltungsprogramms.
  * 
@@ -43,6 +45,6 @@ public class FirmaTester {
         kmu.addKunde(k3);
         // should be true
         System.out.println(kmu.istVoll());
-    }
 
+    }
 }

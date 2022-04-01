@@ -13,6 +13,10 @@ public class IFigurSammlungTester {
         System.out.println(meineSammlung);
         System.out.println("\n");
         meineSammlung.printSelektiv(f -> f instanceof Kreis);
+        System.out.println("\n");
+        meineSammlung.printSelektiv(f -> f.getFarbe().equals("Rot"));
+
+        meineSammlung.runSelektiv(f -> f instanceof Kreis, f -> ((Kreis) f).radiusIncrease(0.5));
     }
 
 }

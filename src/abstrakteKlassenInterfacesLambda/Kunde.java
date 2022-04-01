@@ -96,4 +96,10 @@ public class Kunde extends Person {
         return anrede;
     }
 
+    @Override
+    public String toString() {
+        return "[Kunde" +
+                "kundennummer=" + this.kundennummer +
+                ']';
+    }
 }
