@@ -3,16 +3,12 @@ package abstrakteKlassenInterfacesLambda;
 import java.util.Comparator;
 
 public interface IFigur extends Comparable<IFigur> {
-
-
     /*public static class FlaechenComparator implements Comparator<IFigur> {
         @Override
         public int compare(IFigur o1, IFigur o2) {
             return (int) (o1.getFlaeche() - o2.getFlaeche());
         }
-    }
-     */
-
+    } */
     String[] FARBEN = {"Rot", "Gruen", "Blau"};
 
     /**
