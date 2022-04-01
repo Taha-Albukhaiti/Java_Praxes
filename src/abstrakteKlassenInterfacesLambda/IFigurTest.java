@@ -17,6 +17,7 @@ public class IFigurTest  {
         // Arrays.sort(far, (IFigur o1, IFigur o2) ->
         //{ return (int) (o1.getFlaeche() - o2.getFlaeche());});
         System.out.println(Arrays.toString(far));
+        System.out.println(Arrays.toString(far));
 
     }
 
