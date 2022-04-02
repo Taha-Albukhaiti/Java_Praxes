@@ -1,18 +1,20 @@
 package abstrakteKlassenInterfacesLambda;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * Klasse zum Testen des einfachen Firmen- Verwaltungsprogramms.
- * 
+ *
  * @author Agathe Merceron
  * @version 1.0
  */
-public class FirmaTester {
+public class FirmaTester implements Comparator<Kunde> {
 
     /**
      * Main-Methode.
-     * 
+     *
      * @param args Uebergabeparameter
      */
     public static void main(String[] args) {
@@ -45,6 +47,18 @@ public class FirmaTester {
         kmu.addKunde(k3);
         // should be true
         System.out.println(kmu.istVoll());
+        ArrayList<Kunde> m = new ArrayList<>();
+        m.add(k2);
+        m.add(k3);
+        m.add(k1);
 
+
+        Arrays.sort(m, (o1, o2) -> o2.compareTo(o1));
+
+    }
+
+    @Override
+    public int compare(Kunde o1, Kunde o2) {
+        return 0;
     }
 }

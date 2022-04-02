@@ -4,7 +4,7 @@ package abstrakteKlassenInterfacesLambda;
  * Klasse mit Attributen und Methoden fuer einen Kunden einer Firma. Die
  * abstrakte Klasse Person wird vererbt und getAnrede() wird implementiert.
  * Methoden und Konstruktor werden von der Klasse Firma aufgerufen.
- * 
+ *
  * @author S. Kaltofen
  * @version 2.4
  */
@@ -23,7 +23,7 @@ public class Kunde extends Person {
     /**
      * Mit diesem Konstruktor erfolgt die Initialisierung der Attribute durch die
      * uebergebenen Parameter.
-     * 
+     *
      * @param nachname   Nachname des Kunden
      * @param vorname    Vorname des Kunden
      * @param strasse    Strasse zur Adresse des Kunden
@@ -33,16 +33,24 @@ public class Kunde extends Person {
      * @param weiblich   Flag ob Kunde weiblich ist
      */
     public Kunde(String nachname, String vorname, String strasse, String hausnummer, String ort, String plz,
-            boolean weiblich) {
+                 boolean weiblich) {
         // Konstruktor der Oberklasse wird aufgerufen
         super(nachname, vorname, strasse, hausnummer, ort, plz, weiblich);
         this.kundennummer = 0;
     }
 
+    public int getKundennummer() {
+        return kundennummer;
+    }
+
+    public void setKundennummer(int kundennummer) {
+        this.kundennummer = kundennummer;
+    }
+
     /**
      * Mit diesem Konstruktor erfolgt die Initialisierung der Attribute durch die
      * uebergebenen Parameter inkl. setzen der Kundennummer.
-     * 
+     *
      * @param nachname     Nachname des Kunden
      * @param vorname      Vorname des Kunden
      * @param strasse      Strasse zur Adresse des Kunden
@@ -53,7 +61,7 @@ public class Kunde extends Person {
      * @param kundennummer Kundennummer fuer den Kunden
      */
     public Kunde(String nachname, String vorname, String strasse, String hausnummer, String ort, String plz,
-            boolean weiblich, int kundennummer) {
+                 boolean weiblich, int kundennummer) {
         // Konstruktor der Oberklasse wird aufgerufen
         super(nachname, vorname, strasse, hausnummer, ort, plz, weiblich);
         // Kundennummer setzen
@@ -62,7 +70,7 @@ public class Kunde extends Person {
 
     /**
      * Die Methode setKundenNr setzt die Kundennummer.
-     * 
+     *
      * @param kundennummer Kunennummer der Kunden
      */
     public void setKundenNr(int kundennummer) {
@@ -71,7 +79,7 @@ public class Kunde extends Person {
 
     /**
      * Die Methode getKundenNr gibt die Kundennummer aus.
-     * 
+     *
      * @return int Kundennummer
      */
     public int getKundenNr() {
@@ -80,7 +88,7 @@ public class Kunde extends Person {
 
     /**
      * Gibt die richtige Anrede zurueck.
-     * 
+     *
      * @return die Anrede
      */
     @Override
@@ -102,4 +110,6 @@ public class Kunde extends Person {
                 "kundennummer=" + this.kundennummer +
                 ']';
     }
+
+
 }
