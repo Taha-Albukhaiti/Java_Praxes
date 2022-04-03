@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
+@FunctionalInterface
+interface IsFuncational{
+    int test(Kunde a, Kunde b);
+}
+
 /**
  * Klasse zum Testen des einfachen Firmen- Verwaltungsprogramms.
  *
@@ -53,7 +58,9 @@ public class FirmaTester implements Comparator<Kunde> {
         m.add(k1);
 
 
-        Arrays.sort(m, (o1, o2) -> o2.compareTo(o1));
+      // Comparator isF = (Kunde a, Kunde b) -> a.getKundenNr(). ;
+
+
 
     }
 
