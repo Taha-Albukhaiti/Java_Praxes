@@ -18,15 +18,26 @@ public class FirmaMain {
      * @param args Uebergabeparameter
      */
     public static void main(String[] args) {
-
         // ### to do ###
-
-        Firma m = new Firma("Blabal");
+        Firma p = new Firma("meineFirma");
         try {
-            m.ladePersonen(DATEINAME);
+            p.ladePersonen(DATEINAME);
         } catch (IOException e) {
             e.printStackTrace();
         }
+        p.gibPersonenAus(new Personenfilter() {
+            @Override
+            public boolean personEinbeziehen(Person p) {
+                return p instanceof Kunde ? true : false;
+            }
+        });
+
+        System.out.println();
+        p.gibPersonenAus((Person per) -> per instanceof Angestellte ? true : false);
+
+        System.out.println();
+        p.gibPersonenAusVariante2(() -> true);
+
     }
 
 }

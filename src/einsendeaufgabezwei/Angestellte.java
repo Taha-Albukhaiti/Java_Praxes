@@ -22,6 +22,18 @@ public class Angestellte extends Person {
         this.gehalt = gehalt;
     }
 
+    public Angestellte() {
+
+    }
+
+    public float getGehalt() {
+        return gehalt;
+    }
+
+    public void setGehalt(float gehalt) {
+        this.gehalt = gehalt;
+    }
+
     @Override
     public String toString() {
         return "Angestellte: " + super.toString() + gehalt;

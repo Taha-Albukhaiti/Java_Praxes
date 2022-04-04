@@ -1,8 +1,7 @@
 package einsendeaufgabezwei;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.util.function.BooleanSupplier;
 
 /**
  *
@@ -22,7 +21,6 @@ public class Firma {
      */
     private Person[] allePersonen = new Person[MAX_ANZAHL];
 
-
     /**
      * Konstruktor
      *
@@ -33,7 +31,6 @@ public class Firma {
         this.name = name;
     }
 
-
     /**
      * Liest die Personendaten (Kund:innen und Angestellte) aus
      * der als Parameter uebergebenen Datei, legt die entsprechenden
@@ -41,47 +38,48 @@ public class Firma {
      */
     public void ladePersonen(String quelldatei) throws IOException {
         // ### to do ###
-        Kunde k;
-        allePersonen = null;
+        Kunde k = null;
+        Angestellte a = null;
         BufferedReader br = null;
+        int zaehler = 0;
+        String line;
+        String s1 = "K";
+        String s2 = "A";
+        for (int i = 0; i < allePersonen.length; i++) {
+            allePersonen[i] = null;
+        }
         try {
+
             br = new BufferedReader(new FileReader(quelldatei));
-            String zeile = null;
-            while ((zeile = br.readLine()) != null) {
-                if (zeile.equals("k")) {
-                    zeile = null;
-                    while ((zeile = br.readLine()) != null) {
-                        String vor = zeile;
-
-                        k = new Kunde(zeile, );
+            while (br.ready()) {
+                while ((line = br.readLine()) != null) {
+                    if (line == s1) {
+                        continue;
                     }
-
-
-                    System.out.println("Test: " + zeile);
+                    while ((line = br.readLine()) != null) {
+                        if (line != s2) {
+                            k = new Kunde();
+                            k.setVorname(br.readLine());
+                            k.setNachname(br.readLine());
+                            k.setEmail(br.readLine());
+                            k.setKundennummer((int) Double.parseDouble(br.readLine()));
+                            allePersonen[zaehler++] = k;
+                        } else if (line == s2) {
+                            a = new Angestellte();
+                            a.setVorname(br.readLine());
+                            a.setNachname(br.readLine());
+                            a.setEmail(br.readLine());
+                            a.setGehalt((int) Double.parseDouble(br.readLine()));
+                            allePersonen[zaehler++] = a;
+                        }
+                    }
                 }
-
-                //if (br.toString() == "k") {
-                //}
             }
-
         } catch (Exception e) {
             System.err.println("Fehler beim Laden: " + e.getMessage());
         } finally {
             br.close();
         }
-
-    }
-
-
-    /**
-     * Gibt alle Personen aus, die dem uebergebenen Filterkriterium entsprechen
-     *
-     * @param
-     */
-    public void gibPersonenAus() {        // ### Parameter ergaenzen ###
-
-        // ### to do ###
-
     }
 
     /**
@@ -89,9 +87,34 @@ public class Firma {
      *
      * @param
      */
-    public void gibPersonenAusVariante2() {        // ### Parameter ergaenzen ###
+    public void gibPersonenAus(Personenfilter pf) {        // ### Parameter ergaenzen ###
 
         // ### to do ###
+
+        for (int i = 0; i < allePersonen.length; i++) {
+            if (pf.personEinbeziehen(allePersonen[i])) {
+                System.out.println(allePersonen.toString());
+            }
+        }
+        //  Personenfilter l = (pf) -> System.out.println(pf[i]);
+                /* for (pf : allePersonen) {
+                //pf = (Personenfilter) Arrays.stream(allePersonen);
+              /*  if (p.getClass().equals(Kunde)) {
+                    Kunde k = null;
+                    System.out.println(k.toString());
+                }
+
+               */
+    }
+
+    /**
+     * Gibt alle Personen aus, die dem uebergebenen Filterkriterium entsprechen
+     *
+     * @param
+     */
+    public void gibPersonenAusVariante2(BooleanSupplier n) {        // ### Parameter ergaenzen ###
+        // ### to do ###
+        n.getAsBoolean();
 
     }
 }
