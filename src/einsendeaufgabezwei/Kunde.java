@@ -6,6 +6,7 @@ package einsendeaufgabezwei;
 public class Kunde extends Person {
 
     protected int kundennummer;
+
     /**
      * Konstruktor zur Initialisierung der Attribute durch die
      * uebergebenen Parameter.
@@ -36,6 +37,6 @@ public class Kunde extends Person {
 
     @Override
     public String toString() {
-        return "Kunde: " + kundennummer + super.toString();
+        return "Kunde: " + kundennummer + ", " + super.toString();
     }
 }

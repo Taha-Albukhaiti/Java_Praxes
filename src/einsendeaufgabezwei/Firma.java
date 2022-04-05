@@ -1,6 +1,8 @@
 package einsendeaufgabezwei;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.function.BooleanSupplier;
 
 /**
@@ -38,41 +40,31 @@ public class Firma {
      */
     public void ladePersonen(String quelldatei) throws IOException {
         // ### to do ###
-        Kunde k = null;
-        Angestellte a = null;
+        Kunde k;
+        Angestellte a;
         BufferedReader br = null;
         int zaehler = 0;
         String line;
-        String s1 = "K";
-        String s2 = "A";
         for (int i = 0; i < allePersonen.length; i++) {
             allePersonen[i] = null;
         }
         try {
-
             br = new BufferedReader(new FileReader(quelldatei));
-            while (br.ready()) {
-                while ((line = br.readLine()) != null) {
-                    if (line == s1) {
-                        continue;
-                    }
-                    while ((line = br.readLine()) != null) {
-                        if (line != s2) {
-                            k = new Kunde();
-                            k.setVorname(br.readLine());
-                            k.setNachname(br.readLine());
-                            k.setEmail(br.readLine());
-                            k.setKundennummer((int) Double.parseDouble(br.readLine()));
-                            allePersonen[zaehler++] = k;
-                        } else if (line == s2) {
-                            a = new Angestellte();
-                            a.setVorname(br.readLine());
-                            a.setNachname(br.readLine());
-                            a.setEmail(br.readLine());
-                            a.setGehalt((int) Double.parseDouble(br.readLine()));
-                            allePersonen[zaehler++] = a;
-                        }
-                    }
+            k = new Kunde();
+            a = new Angestellte();
+            while ((line = br.readLine()) != null) {
+                if (line.startsWith("K")) {
+                    k.setVorname(br.readLine());
+                    k.setNachname(br.readLine());
+                    k.setEmail(br.readLine());
+                    k.setKundennummer((int) Double.parseDouble(br.readLine()));
+                    allePersonen[zaehler++] = k;
+                } else if (line.startsWith("A")) {
+                    a.setNachname(br.readLine());
+                    a.setVorname(br.readLine());
+                    a.setEmail(br.readLine());
+                    a.setGehalt((int) Double.parseDouble(br.readLine()));
+                    allePersonen[zaehler++] = a;
                 }
             }
         } catch (Exception e) {
@@ -88,17 +80,16 @@ public class Firma {
      * @param
      */
     public void gibPersonenAus(Personenfilter pf) {        // ### Parameter ergaenzen ###
-
         // ### to do ###
-
-        for (int i = 0; i < allePersonen.length; i++) {
+        for (int i = 0; i < allePersonen.length - 1; i++) {
             if (pf.personEinbeziehen(allePersonen[i])) {
-                System.out.println(allePersonen.toString());
+                System.out.println(allePersonen[i]);
             }
         }
         //  Personenfilter l = (pf) -> System.out.println(pf[i]);
-                /* for (pf : allePersonen) {
-                //pf = (Personenfilter) Arrays.stream(allePersonen);
+
+
+        //pf = (Personenfilter) Arrays.stream(allePersonen);
               /*  if (p.getClass().equals(Kunde)) {
                     Kunde k = null;
                     System.out.println(k.toString());
