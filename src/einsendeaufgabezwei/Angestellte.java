@@ -1,5 +1,6 @@
 package einsendeaufgabezwei;
 
+import java.text.DecimalFormat;
 /**
  *
  */
@@ -27,6 +28,7 @@ public class Angestellte extends Person {
     }
 
     public float getGehalt() {
+
         return gehalt;
     }
 

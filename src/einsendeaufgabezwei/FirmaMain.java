@@ -19,13 +19,14 @@ public class FirmaMain {
      */
     public static void main(String[] args) {
         // ### to do ###
-        Firma p = new Firma("meineFirma");
+        Firma f = new Firma("meineFirma");
         try {
-            p.ladePersonen(DATEINAME);
+            f.ladePersonen(DATEINAME);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        p.gibPersonenAus(new Personenfilter() {
+
+        f.gibPersonenAus(new Personenfilter() {
             @Override
             public boolean personEinbeziehen(Person p) {
                 return p instanceof Kunde ? true : false;
@@ -33,10 +34,10 @@ public class FirmaMain {
         });
 
         System.out.println();
-        p.gibPersonenAus((Person per) -> per instanceof Angestellte ? true : false);
+        f.gibPersonenAus(p -> p instanceof Angestellte ? true : false);
 
         System.out.println();
-        p.gibPersonenAusVariante2(() -> true);
+        f.gibPersonenAusVariante2(() -> true);
 
     }
 

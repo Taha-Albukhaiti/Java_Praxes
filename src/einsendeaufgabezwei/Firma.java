@@ -3,6 +3,7 @@ package einsendeaufgabezwei;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.function.BooleanSupplier;
 
 /**
@@ -42,28 +43,27 @@ public class Firma {
         // ### to do ###
         Kunde k;
         Angestellte a;
+        Person p;
         BufferedReader br = null;
         int zaehler = 0;
         String line;
-        for (int i = 0; i < allePersonen.length; i++) {
-            allePersonen[i] = null;
-        }
+        for (int i = 0; i < allePersonen.length; i++) allePersonen[i] = null;
         try {
             br = new BufferedReader(new FileReader(quelldatei));
-            k = new Kunde();
-            a = new Angestellte();
             while ((line = br.readLine()) != null) {
-                if (line.startsWith("K")) {
-                    k.setVorname(br.readLine());
+                if (line.equals("K")) {
+                    k = new Kunde();
                     k.setNachname(br.readLine());
+                    k.setVorname(br.readLine());
                     k.setEmail(br.readLine());
-                    k.setKundennummer((int) Double.parseDouble(br.readLine()));
+                    k.setKundennummer(Integer.parseInt(br.readLine()));
                     allePersonen[zaehler++] = k;
-                } else if (line.startsWith("A")) {
+                } else if (line.equals("A")) {
+                    a = new Angestellte();
                     a.setNachname(br.readLine());
                     a.setVorname(br.readLine());
                     a.setEmail(br.readLine());
-                    a.setGehalt((int) Double.parseDouble(br.readLine()));
+                    a.setGehalt(Float.parseFloat(br.readLine()));
                     allePersonen[zaehler++] = a;
                 }
             }
@@ -86,16 +86,6 @@ public class Firma {
                 System.out.println(allePersonen[i]);
             }
         }
-        //  Personenfilter l = (pf) -> System.out.println(pf[i]);
-
-
-        //pf = (Personenfilter) Arrays.stream(allePersonen);
-              /*  if (p.getClass().equals(Kunde)) {
-                    Kunde k = null;
-                    System.out.println(k.toString());
-                }
-
-               */
     }
 
     /**
@@ -105,7 +95,14 @@ public class Firma {
      */
     public void gibPersonenAusVariante2(BooleanSupplier n) {        // ### Parameter ergaenzen ###
         // ### to do ###
-        n.getAsBoolean();
+        for (int i = 0; i < allePersonen.length - 3; i++) {
+            if (n.getAsBoolean()) {
+                System.out.println(allePersonen[i]);
+            }
+        }
 
     }
+
 }
+
+

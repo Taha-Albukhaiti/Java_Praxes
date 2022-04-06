@@ -7,6 +7,7 @@ public abstract class Person {
     protected String vorname;
     protected String nachname;
     protected String email;
+    private String gehalt;
 
     /**
      * Konstruktor zur Initialisierung der Attribute durch die
@@ -52,4 +53,6 @@ public abstract class Person {
     public String toString() {
         return  vorname + ',' + nachname + ',' + email ;
     }
+
+
 }
