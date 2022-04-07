@@ -1,9 +1,10 @@
-package einsendeaufgabezwei;
+package collectionsFramework;
+
+
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.DecimalFormat;
 import java.util.function.BooleanSupplier;
 
 /**
@@ -47,8 +48,6 @@ public class Firma {
         BufferedReader br = null;
         int zaehler = 0;
         String line;
-        DecimalFormat f = new java.text.DecimalFormat( "0.00" );
-
         for (int i = 0; i < allePersonen.length; i++) allePersonen[i] = null;
         try {
             br = new BufferedReader(new FileReader(quelldatei));

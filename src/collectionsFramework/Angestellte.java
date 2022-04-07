@@ -1,6 +1,4 @@
-package einsendeaufgabezwei;
-
-import java.text.DecimalFormat;
+package collectionsFramework;
 
 /**
  *
@@ -28,15 +26,13 @@ public class Angestellte extends Person {
 
     }
 
-    public String getGehalt() {
-        DecimalFormat f = new java.text.DecimalFormat( "0.00" );
-        String l = f.format(gehalt);
-        return l;
+    public float getGehalt() {
+
+        return gehalt;
     }
 
-    public float setGehalt(float gehalt) {
+    public void setGehalt(float gehalt) {
         this.gehalt = gehalt;
-        return 0;
     }
 
     @Override
