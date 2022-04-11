@@ -1,43 +1,68 @@
 package collectionsFramework;
 
-/**
- *
- */
 public class Angestellte extends Person {
-
-    protected float gehalt;
+    // Instanzvariable gehalt
+    private float gehalt;
 
     /**
-     * Konstruktor zur Initialisierung der Attribute durch die
+     * Parameterloser Konstruktor.
+     */
+    public Angestellte() {
+        super(); // macht deutlich, dass der Konstruktor der Oberklasse
+        // aufgerufen wird
+    }
+
+    /**
+     * Mit diesem Konstruktor erfolgt die Initialisierung der Attribute durch die
      * uebergebenen Parameter.
      *
-     * @param vorname  Vorname der Angestellten
-     * @param nachname Nachname der Angestellten
-     * @param email    E-Mail-Adresse der Angestellten
-     * @param gehalt   Gehalt der Angestellten
+     * @param nachname   Nachname des Angestellten
+     * @param vorname    Vorname des Angestellten
+     * @param strasse    Strasse zur Adresse des Angestellten
+     * @param hausnummer Hausnummer zur Adresse des Angestellten
+     * @param ort        Ort zur Adresse des Angestellten
+     * @param plz        PLZ zur Adresse des Angestellten
+     * @param weiblich   Flag ob Angestellter weiblich ist
+     * @param gehalt     Gehalt des Angestellten
      */
-    public Angestellte(String vorname, String nachname, String email, float gehalt) {
-        // Konstruktor der Oberklasse wird aufgerufen
-        super(vorname, nachname, email);
+    public Angestellte(String nachname, String vorname, String strasse, String hausnummer, String ort, String plz,
+                       boolean weiblich, float gehalt) {
+        // Aufruf des Konstruktors der Oberklasse
+        super(nachname, vorname, strasse, hausnummer, ort, plz, weiblich);
+        // Gehalt initialisieren
         this.gehalt = gehalt;
     }
 
-    public Angestellte() {
-
-    }
-
+    /**
+     * Die Methode getGehalt() dient zur Ausgabe der Gehaltskosten. Sie wird von der
+     * Klasse Firma aufgerufen.
+     *
+     * @param keine
+     * @return float Gehalt des Angestellten
+     */
     public float getGehalt() {
-
         return gehalt;
     }
 
-    public void setGehalt(float gehalt) {
-        this.gehalt = gehalt;
+    /**
+     * Gibt die richtige Anrede zurueck.
+     *
+     * @return die Anrede
+     */
+    @Override
+    protected String getAnrede() {
+        String anrede;
+        if (isWeiblich()) {
+            anrede = " Frau Angestellte";
+        } else {
+            anrede = " Herrn Angestellte";
+        }
+        return anrede;
     }
 
     @Override
     public String toString() {
-        return "Angestellte: " + super.toString() + ", " + gehalt;
+        return super.toString().replace("]", ", Gehalt=" + this.gehalt + "]");
     }
 
 }

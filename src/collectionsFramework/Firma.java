@@ -1,10 +1,6 @@
 package collectionsFramework;
 
 
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.function.BooleanSupplier;
 
 /**
@@ -40,6 +36,7 @@ public class Firma {
      * der als Parameter uebergebenen Datei, legt die entsprechenden
      * Objekte an und traegt diese in das Array allePersonen ein.
      */
+    /*
     public void ladePersonen(String quelldatei) throws IOException {
         // ### to do ###
         Kunde k;
@@ -74,6 +71,7 @@ public class Firma {
             br.close();
         }
     }
+*/
 
     /**
      * Gibt alle Personen aus, die dem uebergebenen Filterkriterium entsprechen

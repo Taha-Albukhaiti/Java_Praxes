@@ -1,10 +1,7 @@
 package collectionsFramework;
 
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
@@ -39,13 +36,13 @@ public class FirmaMain {
 
         unsereZahlen.add(1);
         unsereZahlen.add(2);
-        Angestellte ang1 = new Angestellte("Taylor", "Elisabeth", "Amrummer Strasse", 410000);
-        unserePersonenInKiel.add(ang1);
+        // Angestellte ang1 = new Angestellte("Taylor", "Elisabeth", "Amrummer Strasse", 410000);
+        // unserePersonenInKiel.add(ang1);
 
         boolean b1 = unserePersonen.containsAll(unserePersonenInKiel);
         boolean b2 = unserePersonen.containsAll(unsereKunden);
         boolean b3 = unserePersonen.containsAll(unsereZahlen);
-        System.out.println(b1 + " " + b2 + " " + b3 );
+        System.out.println(b1 + " " + b2 + " " + b3);
 
 
 
