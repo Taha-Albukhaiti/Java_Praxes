@@ -26,50 +26,17 @@ public class Telefonliste {
      */
     public boolean eintragEinfuegen(String name, String nummer) {
 
-        if (name != null && nummer != null) {
-            Telefoneintrag tele = new Telefoneintrag(name, nummer);
-            for (Telefoneintrag eintraege2: eintraege) {
-                if ((eintraege2.getName() == tele.getName()) && (eintraege2.getNummer() == tele.getNummer())) {
-                    continue;
-
-
-                }
-                eintraege.add(tele);
-                return true;
+        if (name == null && nummer == null) {
+            return false;
+        }
+        for (Telefoneintrag ein : eintraege) {
+            if (ein.getName().equals(name) && ein.getNummer().equals(nummer)) {
+                return false;
             }
         }
-        return false;
-
-
-
-/*
-        for (int i = 0; i < eintraege.size(); i++){
-            if (!((eintraege.get(i).getName()) == name) && !((eintraege.get(i).getNummer()) == nummer)){
-                Telefoneintrag tele = new Telefoneintrag(name, nummer);
-                eintraege.add(tele);
-                return true;
-            }
-        }*/
-
-
-     /*   //  if(!eintraege.contains(tele)) {
-        Iterator<Telefoneintrag> it = eintraege.iterator();
-        while (it.hasNext()) {
-
-            if (!it.next().getName().equals(name) || !it.next().getNummer().equals(nummer)) {
-                Telefoneintrag tele = new Telefoneintrag(name, nummer);
-                eintraege.add(tele);
-                return true;
-            }
-        }*/
-
-
-        //   name != null && nummer != null
-      /*  Telefoneintrag eintrag ;
-        Iterator<Telefoneintrag> it = eintraege.iterator();
-        while (it.hasNext()) {
-            eintrag = it.next();*/
-
+        Telefoneintrag tele = new Telefoneintrag(name, nummer);
+        eintraege.add(tele);
+        return true;
     }
 
     /**
@@ -93,7 +60,6 @@ public class Telefonliste {
         for (int i = 0; i < eintraege.size(); i++) {
             if (eintraege.get(i).getName().equals(string)) {
                 eintraege.get(i).setNummer(string2);
-                //eintraege.set(i, setNummer(string2));
                 return true;
             }
         }
@@ -118,6 +84,8 @@ public class Telefonliste {
     }
 
     /**
+     * Sucht der Nummer anhand des Names aus
+     *
      * @param string
      * @return
      */
@@ -134,6 +102,8 @@ public class Telefonliste {
     }
 
     /**
+     *  Sucht der Name anhand des Nummeres aus
+     *
      * @param string
      * @return
      */
@@ -148,13 +118,5 @@ public class Telefonliste {
         return null;
     }
 
-    public static void main(String[] args) {
-
-        Iterator<Telefoneintrag> lit3 = eintraege.iterator();
-        while (lit3.hasNext()) {
-            System.out.println(lit3.next().toString());
-        }
-
-    }
 
 }

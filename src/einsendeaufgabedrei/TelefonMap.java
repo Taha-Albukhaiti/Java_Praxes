@@ -24,7 +24,6 @@ public class TelefonMap {
     public  boolean eintragEinfuegen(String name, String nummer) {
 
         if (name != null && nummer != null) {
-            // Telefoneintrag tele = new Telefoneintrag(name, nummer);
             if (!eintraege.containsKey(name) && !eintraege.containsValue(nummer)) {
                 eintraege.put(name, nummer);
                 return true;
@@ -53,7 +52,6 @@ public class TelefonMap {
 
         if (eintraege.containsKey(string)) {
             eintraege.replace(string, string2);
-           // var s = eintraege.computeIfPresent(string, (k, v) -> v = string2);
             return true;
         } else {
             return false;
@@ -74,9 +72,6 @@ public class TelefonMap {
      * @return
      */
     public String nummerSuchen(String string) {
-
-//containsValue(Object value)
-        //Ausgabe
         Iterator it = eintraege.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry entry = (Map.Entry) it.next();
@@ -87,6 +82,8 @@ public class TelefonMap {
     }
 
     /**
+     *
+     *
      * @param string
      * @return
      */
@@ -99,20 +96,6 @@ public class TelefonMap {
                 return (String) entry.getKey();
         }
         return null;
-    }
-    public static void main(String[] args){
-
-        Telefonliste telefonliste ;
-        telefonliste = new Telefonliste();
-        telefonliste.eintragEinfuegen("Max", "0178989898989");
-
-/*  for (HashMap<>)
-        Iterator it = eintraege.entrySet().iterator();
-        while (it.hasNext()){
-            Map.Entry entry = (Map.Entry) it.next();
-            System.out.println(entry.getKey());
-        }*/
-
     }
 }
 

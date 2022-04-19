@@ -1,5 +1,4 @@
 package einsendeaufgabedrei;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -10,12 +9,13 @@ import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
 
+
 //TelefonlisteTest mit drei Testfaellen
 @RunWith(Enclosed.class)
 public class TelefonlisteTest {
 
-     private static Telefonliste telefonliste = new Telefonliste();
-    // private static TelefonMap telefonliste = new TelefonMap();
+    //  private static Telefonliste telefonliste = new Telefonliste();
+	private static TelefonMap telefonliste = new TelefonMap();
 
     public static class TelefonlisteTestLeereListe {
 
@@ -58,13 +58,13 @@ public class TelefonlisteTest {
         @Test
         public void testEintragLoeschenGroesse() {
             telefonliste.eintragLoeschen("Max");
-            assertEquals(0, telefonliste.groesse()); // vorher leer, nachher leer
+            assertEquals(0, telefonliste.groesse());    //vorher leer, nachher leer
         }
 
         @Test
         public void testEintragLoeschenNull() {
             telefonliste.eintragLoeschen(null);
-            assertEquals(0, telefonliste.groesse()); // vorher leer, nachher leer
+            assertEquals(0, telefonliste.groesse());    //vorher leer, nachher leer
         }
 
         @Test
@@ -93,7 +93,6 @@ public class TelefonlisteTest {
         @Before
         public void init() {
             telefonliste.eintragEinfuegen("Max", "0175 987654321");
-
         }
 
         @After
@@ -114,15 +113,13 @@ public class TelefonlisteTest {
 
         @Test
         public void testEintragEinfuegenDoppeltReturn() {
-            // assertTrue(telefonliste.eintragEinfuegen("Max", "0175 987654321"));
-             assertFalse(telefonliste.eintragEinfuegen("Max", "0175 987654321"));
+            assertFalse(telefonliste.eintragEinfuegen("Max", "0175 987654321"));
         }
 
         @Test
         public void testEintragEinfuegenDoppeltGroesse() {
             telefonliste.eintragEinfuegen("Max", "0175 987654321");
             assertEquals(1, telefonliste.groesse());
-            // assertEquals(2, telefonliste.groesse());
         }
 
         @Test
@@ -186,8 +183,7 @@ public class TelefonlisteTest {
         public void init() {
             telefonliste.eintragEinfuegen("Max", "0175 987654321");
             telefonliste.eintragEinfuegen("Ida", "0152 11001100");
-            telefonliste.nummerAendern("Ida", "0152 38375866"); // um spaeter testen zu koennen, ob Wert korrekt
-            // geaendert wurde
+            telefonliste.nummerAendern("Ida", "0152 38375866");    //um spaeter testen zu koennen, ob Wert korrekt geaendert wurde
             telefonliste.eintragEinfuegen("Eva", "0163 1234567");
         }
 
@@ -215,7 +211,7 @@ public class TelefonlisteTest {
         @Test
         public void testEintragEinfuegenDoppeltGroesse() {
             telefonliste.eintragEinfuegen("Ida", "0152 38375866");
-            assertEquals(4, telefonliste.groesse());
+            assertEquals(3, telefonliste.groesse());
         }
 
         @Test
