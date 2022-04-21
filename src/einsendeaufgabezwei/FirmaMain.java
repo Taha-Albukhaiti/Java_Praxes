@@ -18,7 +18,6 @@ public class FirmaMain {
      * @param args Uebergabeparameter
      */
     public static void main(String[] args) {
-        // ### to do ###
         Firma f = new Firma("meineFirma");
         try {
             f.ladePersonen(DATEINAME);
