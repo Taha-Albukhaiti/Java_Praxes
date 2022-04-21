@@ -1,25 +1,26 @@
+package dateiunddatenstroeme;
+
 import java.io.File;
 import java.io.IOException;
 
 /**
  * Testen der Methoden der Klasse File.
- * 
+ *
  * @author skalt
  * @version 2.0 07/2009
  */
 public class DateiLoeschen {
     /**
      * Main-Methode
-     * 
-     * @param args
-     *            Uebergabeparamater
+     *
+     * @param args Uebergabeparamater
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
         // Uebergabeparameter pruefen
         if (args.length != 2) {
-            System.out.println("\nAufruf des Programms:\n" 
-                                  + "java DateiEntfernen datei  verz");
+            System.out.println("\nAufruf des Programms:\n"
+                    + "java DateiEntfernen datei  verz");
             System.out.println("\ndatei:  Datei, die geloescht werden soll.");
             System.out.println("verz:  Verzeichnis, in dem die zu "
                     + "loeschende Datei gespeichert ist.");
@@ -28,13 +29,12 @@ public class DateiLoeschen {
         // Datei loeschen
         loescheDatei(args[0], args[1]);
     }
+
     /**
      * Methode zum Loeschen einer Datei.
-     * 
-     * @param datei
-     *            Datei, die geloescht werden soll
-     * @param verz
-     *            Verzeichnis, in dem zu loeschende Datei gespeichert ist
+     *
+     * @param datei Datei, die geloescht werden soll
+     * @param verz  Verzeichnis, in dem zu loeschende Datei gespeichert ist
      * @throws IOException
      */
     private static void loescheDatei(String datei, String verz) throws IOException {

@@ -1,13 +1,14 @@
+package dateiunddatenstroeme;
+
 import java.io.File;
 import java.io.IOException;
 
 public class TestDirectory {
-	 /**
+    /**
      * Informationen zum uebergebenen File-Objekt unter Verwendung von Methoden
      * der Klasse File anzeigen.
-     * 
-     * @param testDatei
-     *            File-Objekt zu dem Informationen angezeigt werden sollen
+     *
+     * @param testDatei File-Objekt zu dem Informationen angezeigt werden sollen
      */
     private static void zeigeFileInfos(File testFile) {
         System.out.println("\nInformationen:\n");
@@ -22,13 +23,13 @@ public class TestDirectory {
         System.out.println("isDirectory= " + testFile.isDirectory());
     }
 
-	 public static void main(String[] args) throws IOException {
-		 File n = new File("/Users/taha/Library/Mobile Documents/com~apple~CloudDocs/Documents/GDP2UEBUNG/VFH");
-		 System.out.println(n.mkdirs());
-		 File nn =  n.createTempFile("Temp_Datei", ".tmp", n);	 
-		 nn.setWritable(true);
-		 zeigeFileInfos(nn);
-				 
-		 
-	 }
+    public static void main(String[] args) throws IOException {
+        File n = new File("/Users/taha/Library/Mobile Documents/com~apple~CloudDocs/Documents/GDP2UEBUNG/VFH");
+        System.out.println(n.mkdirs());
+        File nn = n.createTempFile("Temp_Datei", ".tmp", n);
+        nn.setWritable(true);
+        zeigeFileInfos(nn);
+
+
+    }
 }

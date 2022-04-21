@@ -1,4 +1,4 @@
-package dateienunddatenstroeme;
+package dateiunddatenstroeme;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
@@ -14,8 +14,7 @@ public class ObjektEingabeStrom {
     /**
      * Main-Methode.
      *
-     * @param args
-     *            Uebergabeparameter
+     * @param args Uebergabeparameter
      * @throws Exception
      */
     public static void main(String[] args) throws Exception {
@@ -28,8 +27,7 @@ public class ObjektEingabeStrom {
     /**
      * Methode zum Testen eines Objekt-Eingabestroms.
      *
-     * @param dateiName
-     *            Name der Datei aus der Daten gelesen werden
+     * @param dateiName Name der Datei aus der Daten gelesen werden
      * @throws Exception
      */
     public static void testeObjektEingabeStrom(String dateiName)

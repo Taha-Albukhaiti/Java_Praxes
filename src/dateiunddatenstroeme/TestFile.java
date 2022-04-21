@@ -1,20 +1,19 @@
-package dateienunddatenstroeme;
+package dateiunddatenstroeme;
 
 import java.io.File;
 import java.io.IOException;
 
 /**
  * Testen der Methoden der Klasse File.
- * 
+ *
  * @author skalt
  * @version 2.0 07/2009
  */
 public class TestFile {
     /**
      * Main-Methode.
-     * 
-     * @param args
-     *            Uebergabeparameter
+     *
+     * @param args Uebergabeparameter
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
@@ -31,9 +30,8 @@ public class TestFile {
 
     /**
      * Methode zum Erzeugen einer neuen Datei mit dem uebergebenen Dateinamen.
-     * 
-     * @param dateiName
-     *            Name der zu erzeugenden Datei
+     *
+     * @param dateiName Name der zu erzeugenden Datei
      * @return erzeugtes File-Objekt
      * @throws IOException
      */
@@ -48,7 +46,7 @@ public class TestFile {
 
     /**
      * Schreibzugriff für uebergebene Datei verweigern.
-     * 
+     *
      * @param testDatei
      */
     static void verweigereZugriff(File testDatei) {
@@ -58,9 +56,8 @@ public class TestFile {
     /**
      * Informationen zum uebergebenen File-Objekt unter Verwendung von Methoden
      * der Klasse File anzeigen.
-     * 
-     * @param testDatei
-     *            File-Objekt zu dem Informationen angezeigt werden sollen
+     *
+     * @param testDatei File-Objekt zu dem Informationen angezeigt werden sollen
      */
     static void zeigeFileInfos(File testFile) {
         System.out.println("\nInformationen:\n");

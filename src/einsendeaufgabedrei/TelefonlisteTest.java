@@ -1,7 +1,4 @@
 package einsendeaufgabedrei;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
@@ -9,13 +6,15 @@ import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
 
+import static org.junit.Assert.*;
+
 
 //TelefonlisteTest mit drei Testfaellen
 @RunWith(Enclosed.class)
 public class TelefonlisteTest {
 
-    //  private static Telefonliste telefonliste = new Telefonliste();
-	private static TelefonMap telefonliste = new TelefonMap();
+    // private static Telefonliste telefonliste = new Telefonliste();
+    private static TelefonMap telefonliste = new TelefonMap();
 
     public static class TelefonlisteTestLeereListe {
 

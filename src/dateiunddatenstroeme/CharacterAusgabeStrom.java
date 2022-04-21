@@ -1,4 +1,4 @@
-package dateienunddatenstroeme;
+package dateiunddatenstroeme;
 
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
@@ -16,15 +16,14 @@ class CharacterAusgabeStrom {
     /**
      * Main-Methode.
      *
-     * @param args
-     *            Uebergabeparameter
+     * @param args Uebergabeparameter
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
         // Dateiname
         String dateiName = "EinAusgabe.tmp";
         // Array mit Ausgabetext
-        String[] textA = { "Hallo Tester!", "Wie geht es?", "Danke, gut!" };
+        String[] textA = {"Hallo Tester!", "Wie geht es?", "Danke, gut!"};
 
         // Methode zum Testen des Ausgabestroms aufrufen
         testeCharacterAusgabeStrom(dateiName, textA);
@@ -33,14 +32,12 @@ class CharacterAusgabeStrom {
     /**
      * Methode zum Testen eines Character-Ausgabestroms.
      *
-     * @param dateiName
-     *            Name der Datei in die Daten geschrieben werden
-     * @param textA
-     *            zu schreibendes String-Array
+     * @param dateiName Name der Datei in die Daten geschrieben werden
+     * @param textA     zu schreibendes String-Array
      * @throws IOException
      */
     public static void testeCharacterAusgabeStrom(String dateiName,
-            String[] textA) throws IOException {
+                                                  String[] textA) throws IOException {
         // Eine Datei und drei Ausgabestroeme erzeugen und miteinander
         // verbinden
         FileOutputStream foStream = new FileOutputStream(dateiName);

@@ -1,7 +1,8 @@
 package einsendeaufgabedrei;
 
-import java.awt.font.FontRenderContext;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class TelefonMap {
     private static HashMap<String, String> eintraege = new HashMap<>();
@@ -21,7 +22,7 @@ public class TelefonMap {
      * @param nummer
      * @return
      */
-    public  boolean eintragEinfuegen(String name, String nummer) {
+    public boolean eintragEinfuegen(String name, String nummer) {
 
         if (name != null && nummer != null) {
             if (!eintraege.containsKey(name) && !eintraege.containsValue(nummer)) {
@@ -29,7 +30,7 @@ public class TelefonMap {
                 return true;
             }
         }
-            return false;
+        return false;
     }
 
     /**
@@ -38,7 +39,7 @@ public class TelefonMap {
      * @return
      */
     public Object groesse() {
-        return eintraege.size() ;
+        return eintraege.size();
     }
 
     /**
@@ -49,7 +50,6 @@ public class TelefonMap {
      * @return
      */
     public boolean nummerAendern(String string, String string2) {
-
         if (eintraege.containsKey(string)) {
             eintraege.replace(string, string2);
             return true;
@@ -72,23 +72,14 @@ public class TelefonMap {
      * @return
      */
     public String nummerSuchen(String string) {
-        Iterator it = eintraege.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry entry = (Map.Entry) it.next();
-            if(entry.getKey().equals(string))
-             return (String) entry.getValue();
-        }
-        return null;
+        return eintraege.get(string);
     }
 
     /**
-     *
-     *
      * @param string
      * @return
      */
     public String nameSuchen(String string) {
-
         Iterator it = eintraege.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry entry = (Map.Entry) it.next();
