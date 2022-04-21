@@ -1,4 +1,4 @@
-package dateienunddatenstroeme;
+package dateiunddatenstroeme;
 
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;

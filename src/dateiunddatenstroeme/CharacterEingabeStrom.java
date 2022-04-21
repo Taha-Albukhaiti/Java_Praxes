@@ -1,4 +1,4 @@
-package dateienunddatenstroeme;
+package dateiunddatenstroeme;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

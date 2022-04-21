@@ -1,4 +1,4 @@
-package dateienunddatenstroeme;
+package dateiunddatenstroeme;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -38,7 +38,9 @@ public class ObjektAusgabeStrom implements Serializable {
         this.vorname = vorname;
     }
 
-     /** Getter + Setter Methoden */
+    /**
+     * Getter + Setter Methoden
+     */
     public String getName() {
         return name;
     }
@@ -50,8 +52,7 @@ public class ObjektAusgabeStrom implements Serializable {
     /**
      * Main-Methode.
      *
-     * @param args
-     *            Uebergabeparameter
+     * @param args Uebergabeparameter
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
@@ -64,8 +65,7 @@ public class ObjektAusgabeStrom implements Serializable {
     /**
      * Methode zum Testen eines Objekt-Ausgabestroms.
      *
-     * @param dateiName
-     *            Name der Datei in die Daten geschrieben werden
+     * @param dateiName Name der Datei in die Daten geschrieben werden
      * @throws IOException
      */
     public static void testeObjektAusgabeStrom(String dateiName)

@@ -1,4 +1,5 @@
-package dateienunddatenstroeme;
+package dateiunddatenstroeme;
+
 
 import java.io.*;
 import java.util.Arrays;
