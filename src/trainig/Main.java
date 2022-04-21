@@ -2,6 +2,7 @@ package trainig;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.Callable;
 
 public class Main {
 
@@ -22,8 +23,7 @@ public class Main {
         if (s.length() >= 3) {
             m = s.substring(s.length() - 3, s.length());
             return s.substring(0, s.length() - 3) + m.toUpperCase();
-        } else
-            m = s.toUpperCase();
+        } else m = s.toUpperCase();
         return m;
     }
 
@@ -59,8 +59,7 @@ public class Main {
 
     public static String stringXx(String str) {
 
-        if (str.length() <= 2)
-            return str;
+        if (str.length() <= 2) return str;
 
         char start = str.charAt(0);
         char end = str.charAt(str.length() - 1);
@@ -89,10 +88,8 @@ public class Main {
     public static boolean lastDigit(int a, int b) {
         int modA = a % 10;
         int modB = b % 10;
-        if (modA == modB)
-            return true;
-        else
-            return false;
+        if (modA == modB) return true;
+        else return false;
     }
 
     public static boolean isArmstrong(int x) {
@@ -163,9 +160,9 @@ public class Main {
     public static int luckySum(int... values) {
         int sum = 0;
         // loop over all values
-        for(int x=0; x<values.length; x++) {
+        for (int x = 0; x < values.length; x++) {
             // in the case 13 is found break out of the loop
-            if(values[x] == 13) {
+            if (values[x] == 13) {
                 break;
                 // As a second option you could just return sum here
                 // return sum;
@@ -174,7 +171,66 @@ public class Main {
             sum += values[x];
         }
         return sum;
-}
+    }
+
+    /**
+     * die prüft, ob eine Zahl selbstteilend ist. Eine Zahl ist selbstteilend,
+     * wenn alle ihre Stellen die Zahl ganzzahlig teilt.
+     *
+     * @param x
+     * @return
+     */
+    public static boolean dividesSelf(int x) {
+        for (int val = x; val != 0; val /= 10) {
+            int digit = val % 10;
+            if (digit == 0 || x % digit != 0)
+                return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Gibt an, wieviele sich selbstteilende Zahlen es ab 0 bis zu einer oberen Schranke gibt.
+     *
+     * @param x
+     * @return
+     */
+    public static int countDividesSelf(int x) {
+        int s;
+        for (int val = x; val != 0; val /= 10) {
+            int digit = val % 10;
+            if (digit == 0 || x % digit != 0)
+                ;
+        }
+        return 1;
+    }
+
+    /**
+     * ie zählt, wie häufig eine Zeichenkette a in einer anderen Zeichenkette b vorkommt. Sich überlagernde
+     * Zeichenketten sind erlaubt. D.h. “xx” ist als zweimal in “xxx” vorhanden zu zählen.
+     * Leere Zeichenketten sind nicht zu zählen.
+     *
+     * @param a
+     * @param b
+     * @return
+     */
+    public static int countOccurences(String a, String b) {
+        int temp = 0;
+
+        char[] chars = a.toCharArray();
+        while ( temp < chars.length ){
+            for (int j = 0; j < b.length(); j++) {
+                if (b.charAt(j) == chars[temp]) {
+                    temp += 1;
+                }
+            }
+        }
+
+
+
+        return 1;
+    }
 
     public static void main(String[] args) {
 
@@ -246,6 +302,20 @@ public class Main {
         int result8 = luckySum(1, 2, 3, 13, 4, 5, 6);
         System.out.println(result8); // => 6
         System.out.println(luckySum(1, 2, 3, 4)); // => 10
+
+        boolean result9 = dividesSelf(128);
+        System.out.println(result9); // => true
+        System.out.println(dividesSelf(12)); // => true
+        System.out.println(dividesSelf(102)); // => false
+        int n1 = countDividesSelf(10);
+        System.out.println(n1); // => 9
+        System.out.println(countDividesSelf(100)); // => 23
+        System.out.println(countDividesSelf(1000)); // => 79
+
+        System.out.println(); // => 1
+        System.out.println(countOccurences("Hello", "Hello World")); // => 1
+        System.out.println(countOccurences("abc", "abc abc abc")); // => 3
+        System.out.println(countOccurences("xx", "xxx")); // => 2
 
     }
 }
