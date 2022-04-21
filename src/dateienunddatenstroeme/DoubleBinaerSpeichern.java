@@ -1,8 +1,6 @@
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+package dateienunddatenstroeme;
+
+import java.io.*;
 import java.util.Arrays;
 
 /**
@@ -10,7 +8,6 @@ import java.util.Arrays;
  * koennen, und auch wieder gelesen werden.
  *
  * @author Agathe Merceron
- *
  */
 
 public class DoubleBinaerSpeichern {
@@ -93,8 +90,8 @@ public class DoubleBinaerSpeichern {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-    	 // Variablen deklarieren
-        double[] bA = { 10, 20, 30, 40, 50, 60 };
+        // Variablen deklarieren
+        double[] bA = {10, 20, 30, 40, 50, 60};
         // Methode zum Testen des Ausgabestroms aufrufen
 
         doubleToBinaryDatei(

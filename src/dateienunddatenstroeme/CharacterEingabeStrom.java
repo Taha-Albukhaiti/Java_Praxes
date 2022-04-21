@@ -1,3 +1,5 @@
+package dateienunddatenstroeme;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -14,8 +16,7 @@ public class CharacterEingabeStrom {
     /**
      * Main-Methode.
      *
-     * @param args
-     *            Uebergabeparameter
+     * @param args Uebergabeparameter
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
@@ -29,8 +30,7 @@ public class CharacterEingabeStrom {
     /**
      * Methode zum Testen eines Character-Eingabestroms.
      *
-     * @param dateiName
-     *            Name der Datei aus der Daten gelesen werden
+     * @param dateiName Name der Datei aus der Daten gelesen werden
      * @throws IOException
      */
     public static void testeCharacterEingabeStrom(String dateiName)

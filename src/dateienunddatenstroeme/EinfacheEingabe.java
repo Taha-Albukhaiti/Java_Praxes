@@ -1,13 +1,16 @@
-import java.io.*;
+package dateienunddatenstroeme;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class EinfacheEingabe {
-	
+
 
     /**
      * Main-Methode.
      *
-     * @param args
-     *            Uebergabeparameter
+     * @param args Uebergabeparameter
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
@@ -25,8 +28,7 @@ public class EinfacheEingabe {
     /**
      * Text von der Konsole einlesen und zurueckgeben.
      *
-     * @param wertBez
-     *            Bezeichnung welcher Wert eingegeben werden soll
+     * @param wertBez Bezeichnung welcher Wert eingegeben werden soll
      * @return von Konsole eingelesener Wert
      * @throws IOException
      */
