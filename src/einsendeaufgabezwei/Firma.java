@@ -3,7 +3,9 @@ package einsendeaufgabezwei;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.text.DecimalFormat;
+import java.util.Arrays;
 import java.util.function.BooleanSupplier;
 
 /**
@@ -40,33 +42,18 @@ public class Firma {
      * Objekte an und traegt diese in das Array allePersonen ein.
      */
     public void ladePersonen(String quelldatei) throws IOException {
-        // ### to do ###
-        Kunde k;
-        Angestellte a;
-        Person p;
+
         BufferedReader br = null;
         int zaehler = 0;
         String line;
-        DecimalFormat f = new java.text.DecimalFormat( "0.00" );
-
-        for (int i = 0; i < allePersonen.length; i++) allePersonen[i] = null;
+        for(int i = 0; i < allePersonen.length; i++){allePersonen[i] = null;}
         try {
             br = new BufferedReader(new FileReader(quelldatei));
             while ((line = br.readLine()) != null) {
                 if (line.equals("K")) {
-                    k = new Kunde();
-                    k.setNachname(br.readLine());
-                    k.setVorname(br.readLine());
-                    k.setEmail(br.readLine());
-                    k.setKundennummer(Integer.parseInt(br.readLine()));
-                    allePersonen[zaehler++] = k;
+                    allePersonen[zaehler++] = new Kunde(br.readLine(), br.readLine(), br.readLine(), Integer.parseInt(br.readLine()));
                 } else if (line.equals("A")) {
-                    a = new Angestellte();
-                    a.setNachname(br.readLine());
-                    a.setVorname(br.readLine());
-                    a.setEmail(br.readLine());
-                    a.setGehalt(Float.parseFloat(br.readLine()));
-                    allePersonen[zaehler++] = a;
+                    allePersonen[zaehler++] = new Angestellte(br.readLine(), br.readLine(), br.readLine(), Float.parseFloat(br.readLine()));
                 }
             }
         } catch (Exception e) {
