@@ -93,8 +93,8 @@ public class Gleichungen {
         System.out.println(m);
 
         System.out.println(" ");
-        String ss = hornerSchemaII(1, 1, -6, 11, -6);
-        System.out.println(ss);
+        String ss = hornerSchemaII(1,1, 4, -20, -32);
+        System.out.println("Ergeb "  + ss);
 
         System.out.println(" ");
         String ssa = hornerSchemaII(-3, 1, 6, 14, 15);
