@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<Adressbuch>
+    <Kontakt typ="privat">
+        <Name>
+            <Vorname>Max</Vorname>
+            <Nachname>Mustermann</Nachname>
+        </Name>
+        <Adresse>
+		    <Strasse>Musterstrasse 10</Strasse>
+			<PLZ>10199</PLZ>
+			<Ort>Berlin</Ort>
+			<Land>Deutschland</Land>
+		</Adresse>
+    </Kontakt>
+    <Kontakt typ="privat">
+        <Name>
+            <Vorname>Sandra</Vorname>
+            <Nachname>Tester</Nachname>
+        </Name>
+        <Adresse>
+		    <Strasse>Stallvagen 3</Strasse>
+			<PLZ>35761</PLZ>
+			<Ort>Alvesta</Ort>
+			<Land>Schweden</Land>
+		</Adresse>
+    </Kontakt>
+	    <Kontakt typ="privat">
+        <Name>
+            <Vorname>Karl</Vorname>
+            <Nachname>Leister</Nachname>
+        </Name>
+        <Adresse>
+		    <Strasse>Hauptstrasse 3</Strasse>
+			<PLZ>03572</PLZ>
+			<Ort>Dresden</Ort>
+			<Land>Deutschland</Land>
+		</Adresse>
+    </Kontakt>
+	<Kontakt typ="geschaeftlich">
+        <Name>
+            <Vorname>Bernd</Vorname>
+            <Nachname>Business</Nachname>
+        </Name>
+        <Adresse>
+		    <Strasse>Neuer Weg 30</Strasse>
+			<PLZ>12055</PLZ>
+			<Ort>Berlin</Ort>
+			<Land>Deutschland</Land>
+		</Adresse>
+    </Kontakt>
+	<Kontakt typ="geschaeftlich">
+        <Name>
+            <Vorname>Moritz</Vorname>
+            <Nachname>Makler</Nachname>
+        </Name>
+        <Adresse>
+		    <Strasse>Lindenstrasse 3</Strasse>
+			<PLZ>54762</PLZ>
+			<Ort>Frankfurt am Main</Ort>
+			<Land>Deutschland</Land>
+		</Adresse>
+    </Kontakt>
+</Adressbuch>
