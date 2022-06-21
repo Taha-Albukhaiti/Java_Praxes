@@ -3,9 +3,6 @@ package einsendeaufgabezwei;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.text.DecimalFormat;
-import java.util.Arrays;
 import java.util.function.BooleanSupplier;
 
 /**
@@ -16,7 +13,7 @@ public class Firma {
     /* Maximale Anzahl der mit der Firma in Beziehung stehenden Personen
      * (Kund:innen oder Angestellte)
      */
-    private static final int MAX_ANZAHL = 10;
+    private static final int MAX_ANZAHL = 7;
 
     /* Name der Firma
      */
@@ -46,7 +43,9 @@ public class Firma {
         BufferedReader br = null;
         int zaehler = 0;
         String line;
-        for(int i = 0; i < allePersonen.length; i++){allePersonen[i] = null;}
+        for (int i = 0; i < allePersonen.length; i++) {
+            allePersonen[i] = null;
+        }
         try {
             br = new BufferedReader(new FileReader(quelldatei));
             while ((line = br.readLine()) != null) {
@@ -70,7 +69,7 @@ public class Firma {
      */
     public void gibPersonenAus(Personenfilter pf) {        // ### Parameter ergaenzen ###
         // ### to do ###
-        for (int i = 0; i < allePersonen.length - 1; i++) {
+        for (int i = 0; i < allePersonen.length; i++) {
             if (pf.personEinbeziehen(allePersonen[i])) {
                 System.out.println(allePersonen[i]);
             }
@@ -84,7 +83,7 @@ public class Firma {
      */
     public void gibPersonenAusVariante2(BooleanSupplier n) {        // ### Parameter ergaenzen ###
         // ### to do ###
-        for (int i = 0; i < allePersonen.length - 3; i++) {
+        for (int i = 0; i < allePersonen.length; i++) {
             if (n.getAsBoolean()) {
                 System.out.println(allePersonen[i]);
             }
