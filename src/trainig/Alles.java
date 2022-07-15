@@ -417,15 +417,30 @@ public class Alles {
      * @param prim
      */
     public static boolean isPrim(int number) {
-        boolean ok = ((number / number) && (number / 1) % 2) == 0;
-        return;
+        if (!(number % 2 == 0) && number != 1) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * rzeugt eine Liste aller aufsteigen sortierten Primzahlen bis zu einer oberen Schran-
+     * ke.
+     * @param args
+     */
+    public static List<Integer> primsUntil(int number){
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i <= number; i++){
+            if(isPrim(i)){
+                list.add(i);
+            }
+        }
+        return list;
     }
 
     public static void main(String[] args) {
+/*
 
-        /*
-         * --- 1 ---
-         */
         String greet = hello("Max");
         System.out.println(greet); // => "Hello Max!"
         System.out.println(hello("Moritz")); // => "Hello Moritz!"
@@ -435,9 +450,6 @@ public class Alles {
         System.out.println(hello(" Tessa")); // => "Hello Tessa!"
         System.out.println(hello("")); // => "Hello!" }
 
-        /*
-         * --- 2 ---
-         */
         String result = endUp("Hello");
         System.out.println(result); // => "HeLLO"
         System.out.println(endUp("Hi there")); // => "Hi thERE"
@@ -548,7 +560,14 @@ public class Alles {
         System.out.println(result13); // => [2, 4, 6, 1, 3, 5]
         System.out.println(evenOdd(Arrays.asList(5, 1, 3))); // => [5, 1, 3]
         System.out.println(evenOdd(Arrays.asList(4, 2, 6))); // => [4, 2, 6]
+*/
 
+        boolean prim = isPrim(7);
+        System.out.println(prim); // => true
+        System.out.println(isPrim(8)); // => false
+        System.out.println(isPrim(13)); // => true
 
+        List<Integer> prims = primsUntil(20);
+        System.out.println(prims); // => [2, 3, 5, 7, 11, 13, 17, 19]
     }
 }
