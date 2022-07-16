@@ -5,6 +5,7 @@ package trainig;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class Alles {
 
@@ -426,16 +427,51 @@ public class Alles {
     /**
      * rzeugt eine Liste aller aufsteigen sortierten Primzahlen bis zu einer oberen Schran-
      * ke.
+     *
      * @param args
      */
-    public static List<Integer> primsUntil(int number){
+    public static List<Integer> primsUntil(int number) {
         List<Integer> list = new ArrayList<>();
-        for (int i = 0; i <= number; i++){
-            if(isPrim(i)){
+        for (int i = 0; i <= number; i++) {
+            if (isPrim(i)) {
                 list.add(i);
             }
         }
         return list;
+    }
+
+    public static String columnize(List<Integer> list, int n) {
+        String text = "";
+        int s = n - 1;
+        for (int i = 0; i < list.size(); i++) {
+            text += list.get(i) + "\t";
+            if (i == s) {
+                text += "\n";
+                s += n;
+            }
+        }
+        return text;
+    }
+
+    public static List<Integer> armstrongs(int number) {
+        return null;
+
+    }
+
+    public static boolean trippleUp(int[] array) {
+        int count = 0;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] > array[i]) {
+                   // if (array[j]array[j - 1] == array[i]) {
+                        count += 1;
+                   // }
+                    continue;
+                }
+            }
+        }
+        if (count == 3) return true;
+        return false;
     }
 
     public static void main(String[] args) {
@@ -566,8 +602,35 @@ public class Alles {
         System.out.println(prim); // => true
         System.out.println(isPrim(8)); // => false
         System.out.println(isPrim(13)); // => true
-
-        List<Integer> prims = primsUntil(20);
+        List<Integer> prims;
+        prims = primsUntil(20);
         System.out.println(prims); // => [2, 3, 5, 7, 11, 13, 17, 19]
+
+        String output = columnize(prims, 3);
+        System.out.println(output);
+        //2 3 5
+        //7 11 13
+        //17 19
+        // Entspricht der Zeichenkette: "2\t3\t5\n7\t11\t13\n17\t19"
+        prims = primsUntil(40);
+        System.out.println(columnize(prims, 5));
+
+        List<Integer> lance = armstrongs(500);
+        System.out.println(lance);
+        // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 153, 370, 371, 407]
+
+        // Map<Integer, List<Integer>> grouped = groupByLength(lance); System.out.println(grouped);
+        // {1=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 3=[153, 370, 371, 407]}
+
+
+        int[] a1 = {1, 4, 5, 6, 2};
+        int[] a2 = {6, 2, 3, 4};
+        int[] a3 = {1, 2, 4};
+        int[] a4 = {3, 2, 1};
+        System.out.println(trippleUp(a1)); // => true
+        System.out.println(trippleUp(a2)); // => true
+        System.out.println(trippleUp(a3)); // => false
+        System.out.println(trippleUp(a4)); // => false
+
     }
 }
