@@ -474,6 +474,25 @@ public class Alles {
         return false;
     }
 
+ public static int minimum(int[] list){
+        int merk = list[0];
+        for (int i = 1; i < list.length; i++){
+                if (list[i] < merk){
+                    merk = list[i];
+                }
+        }
+        return merk;
+ }
+ public static int maximum(int[] list){
+     int merk = list[0];
+     for (int i = 1; i < list.length; i++){
+         if (list[i] > merk){
+             merk = list[i];
+         }
+     }
+     return merk;
+ }
+
     public static void main(String[] args) {
 /*
 
@@ -631,6 +650,10 @@ public class Alles {
         System.out.println(trippleUp(a2)); // => true
         System.out.println(trippleUp(a3)); // => false
         System.out.println(trippleUp(a4)); // => false
+
+        int[] arr = {4, 3, 6, 2, 9, 4};
+        System.out.println(minimum(arr));
+        System.out.println(maximum(arr));
 
     }
 }
