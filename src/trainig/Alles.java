@@ -13,9 +13,7 @@ public class Alles {
      * --- 1 ---
      */
     public static String hello(String name) {
-        name = name.trim();
-        name = "Hello " + name + "!";
-        return name;
+        return "Hello " + name.trim() + "!";
     }
 
     /*
