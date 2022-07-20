@@ -2,10 +2,7 @@ package trainig;
 
 //import org.apache.commons.lang3.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Alles {
 
@@ -456,40 +453,79 @@ public class Alles {
 
     }
 
+    /**
+     * Return true if the array contains, somewhere, three increasing adjacent
+     * numbers like .... 4, 5, 6, ... or 23, 24, 25.
+     */
+
     public static boolean trippleUp(int[] array) {
-        int count = 0;
-        for (int i = 0; i < array.length; i++) {
-            for (int j = i + 1; j < array.length; j++) {
-                if (array[j] > array[i]) {
-                   // if (array[j]array[j - 1] == array[i]) {
-                        count += 1;
-                   // }
-                    continue;
-                }
+        for (int i = 0; i < array.length - 2; i++) {
+            if (array[i] + 1 == array[i + 1] && array[i + 1] + 1 == array[i + 2]) {
+                return true;
             }
         }
-        if (count == 3) return true;
         return false;
     }
 
- public static int minimum(int[] list){
+    public static int minimum(int[] list) {
         int merk = list[0];
-        for (int i = 1; i < list.length; i++){
-                if (list[i] < merk){
-                    merk = list[i];
-                }
+        for (int i = 1; i < list.length; i++) {
+            if (list[i] < merk) {
+                merk = list[i];
+            }
         }
         return merk;
- }
- public static int maximum(int[] list){
-     int merk = list[0];
-     for (int i = 1; i < list.length; i++){
-         if (list[i] > merk){
-             merk = list[i];
-         }
-     }
-     return merk;
- }
+    }
+
+    public static int maximum(int[] list) {
+        int merk = list[0];
+        for (int i = 1; i < list.length; i++) {
+            if (list[i] > merk) {
+                merk = list[i];
+            }
+        }
+        return merk;
+    }
+
+    /**
+     * Sie sollen nun einen Methode topping() schreiben, die für einen Bringdienst ein paar Bereinigungen auf Bestellungen vornimmt.
+     * Bestellungen werden als Map codiert.
+     * • TauchtinderBestellung"icecream"auf,sollderselbeWertauchfür"yoghurt"gesetztwerden.
+     * • TauchtinderBestellung"spinach"auf,solldieserEintraggelöschtwerden(niemandmagSpinat).
+     * topping() soll die ursprüngliche Bestellung nicht modifizieren, sondern eine neue modifizierte Bestel-
+     * lung erzeugen.
+     *
+     * @param map
+     * @return
+     */
+    public static Map<String, String> topping(Map map) {
+        Map<String, String> newMap = new TreeMap<>();
+        Iterator it = map.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry me = (Map.Entry) it.next();
+            if (me.getKey().equals("ice cream")) {
+                newMap.put((String) me.getKey(), (String) me.getValue());
+                newMap.put("yoghurt", (String) me.getValue());
+            } else if (me.equals("spinach")) {
+                newMap.remove("spinach");
+            } else {
+                newMap.put((String) me.getKey(), (String) me.getValue());
+            }
+        }
+        return newMap;
+    }
+
+    /**
+     * @param str
+     */
+    public static Map<String, Integer> wordCount(String str) {
+        Map<String, Integer> map = new HashMap<>();
+        for (int i = 0; i < str.length(); i++) {
+            map.put(str.substring(i), i);
+
+        }
+        return map;
+    }
 
     public static void main(String[] args) {
 /*
@@ -614,6 +650,7 @@ public class Alles {
         System.out.println(evenOdd(Arrays.asList(5, 1, 3))); // => [5, 1, 3]
         System.out.println(evenOdd(Arrays.asList(4, 2, 6))); // => [4, 2, 6]
 */
+        /*
 
         boolean prim = isPrim(7);
         System.out.println(prim); // => true
@@ -640,7 +677,7 @@ public class Alles {
         // {1=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 3=[153, 370, 371, 407]}
 
 
-        int[] a1 = {1, 4, 5, 6, 2};
+        int[] a1 = {1, 9, 4, 5, 6, 2, 1, 3};
         int[] a2 = {6, 2, 3, 4};
         int[] a3 = {1, 2, 4};
         int[] a4 = {3, 2, 1};
@@ -649,9 +686,29 @@ public class Alles {
         System.out.println(trippleUp(a3)); // => false
         System.out.println(trippleUp(a4)); // => false
 
+
         int[] arr = {4, 3, 6, 2, 9, 4};
         System.out.println(minimum(arr));
         System.out.println(maximum(arr));
 
+
+        Map<String, String> order1 = new TreeMap<>();
+        order1.put("ice cream", "cherry");
+        Map<String, String> order2 = new TreeMap<>();
+        order2.put("spinach", "dirt");
+        order2.put("ice cream", "cherry");
+        Map<String, String> order3 = new TreeMap<>();
+        order3.put("yoghurt", "salt");
+        System.out.println(topping(order1));// => { "ice cream"="cherry", "yoghurt"="cherry" }
+        // System.out.println(order1);         // => { "ice cream"="cherry" }
+        System.out.println(topping(order2));// => { "ice cream"="cherry", "yoghurt"="cherry" }
+        // System.out.println(order2);         // => { "spinach"="dirt", "ice cream"="cherry" }
+        System.out.println(topping(order3));// => { "yoghurt"="salt" }
+        // System.out.println(order3);         // => { "yoghurt"="salt" }
+*/
+
+        Map<String, Integer> result = wordCount("aa BB cC Aa Cc Bb aA AA");
+        System.out.println(result); // => { "aa": 4, "bb": 2, "cc": 2 }
+        System.out.println(wordCount("Ein kleines Beispiel"));// => { "ein": 1, "kleines": 1, "beispiel": 1 }
     }
 }
