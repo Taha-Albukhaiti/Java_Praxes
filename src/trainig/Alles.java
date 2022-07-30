@@ -3,6 +3,7 @@ package trainig;
 //import org.apache.commons.lang3.*;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 public class Alles {
 
@@ -410,7 +411,7 @@ public class Alles {
     /**
      * Prüft, ob eine gegebene Zahl eine Primzahl ist.
      *
-     * @param prim
+     * @param number
      */
     public static boolean isPrim(int number) {
         if (!(number % 2 == 0) && number != 1) {
@@ -423,7 +424,7 @@ public class Alles {
      * rzeugt eine Liste aller aufsteigen sortierten Primzahlen bis zu einer oberen Schran-
      * ke.
      *
-     * @param args
+     * @param number
      */
     public static List<Integer> primsUntil(int number) {
         List<Integer> list = new ArrayList<>();
@@ -519,12 +520,50 @@ public class Alles {
      * @param str
      */
     public static Map<String, Integer> wordCount(String str) {
-        Map<String, Integer> map = new HashMap<>();
-        for (int i = 0; i < str.length(); i++) {
-            map.put(str.substring(i), i);
-
+        Map<String, Integer> hashMap = new HashMap<>();
+        String[] words = str.toLowerCase().split("\\s");
+        for (String word : words) {
+            // Asking whether the HashMap contains the
+            // key or not. Will return null if not.
+            Integer integer = hashMap.get(word);
+            if (integer == null) {
+                // Storing the word as key and its
+                // occurrence as value in the HashMap.
+                hashMap.put(word, 1);
+            } else {
+                // Incrementing the value if the word
+                // is already present in the HashMap.
+                hashMap.put(word, integer + 1);
+            }
         }
-        return map;
+        return hashMap;
+    }
+
+    /**
+     * Entwickeln Sie nun bitte eine Methode wordAppend(). Diese soll eine Liste von Strings durchlaufen, um
+     * einen Ausgabestring zu erzeugen. Gehen Sie dabei wie folgt vor:
+     * Immer wenn ein String zum 2., 4., 6., usw. mal in der Liste auftaucht,
+     * soll der String an den Ausgabestring gehängt werden.
+     * Wenn kein String doppelt vorkommt, soll die leere Zeichenkette zurückgegeben werden.
+     */
+
+    static String wordAppend(List<String> list) {
+        String finalResult = null;
+        Set<String> set = new HashSet<>(list);
+        for (String r : set) {
+            if (Collections.frequency(list, r) >= 2 && Collections.frequency(list, r) % 2 == 0) {
+                int o = Collections.frequency(list, r);
+                int q = o / 2;
+                Optional<String> result1 = Stream.generate(() -> r).limit(q).reduce((a, b) -> a + b);
+                if (result1.isPresent()) {
+                    finalResult = result1.get();
+                }
+            }
+        }
+        if (finalResult == null) {
+            return " ";
+        }
+        return finalResult;
     }
 
     public static void main(String[] args) {
@@ -707,8 +746,19 @@ public class Alles {
         // System.out.println(order3);         // => { "yoghurt"="salt" }
 */
 
+
         Map<String, Integer> result = wordCount("aa BB cC Aa Cc Bb aA AA");
-        System.out.println(result); // => { "aa": 4, "bb": 2, "cc": 2 }
-        System.out.println(wordCount("Ein kleines Beispiel"));// => { "ein": 1, "kleines": 1, "beispiel": 1 }
+        System.out.println(result);
+        // => { "aa": 4, "bb": 2, "cc": 2 }
+        System.out.println(wordCount("Ein kleines Beispiel"));
+        // => { "ein": 1, "kleines": 1, "beispiel": 1 }
+
+
+        List<String> example = Arrays.asList("a", "b", "a");
+        String results = wordAppend(example);
+        System.out.println(results); // -> "a"
+        System.out.println(wordAppend(Arrays.asList("a", "b", "a", "c", "a", "d", "a"))); // -> "aa"
+        System.out.println(wordAppend(Arrays.asList("a", "", "a"))); // -> "a"
+        System.out.println(wordAppend(Arrays.asList("", "a", "a", "b", "a", "a", "a"))); // -> "a"
     }
 }
