@@ -1,9 +1,4 @@
-package trainig;
-
-import java.util.Scanner;
-import java.util.concurrent.ThreadPoolExecutor;
-
-import static java.lang.Math.sqrt;
+package ahaslibrary;
 
 public class Gleichung {
 /*
