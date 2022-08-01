@@ -1,4 +1,4 @@
-package ahaslibrary;
+package tahaslibrary;
 
 public class Gleichung {
 /*

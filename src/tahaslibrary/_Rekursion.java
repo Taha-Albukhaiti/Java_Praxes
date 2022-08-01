@@ -1,4 +1,4 @@
-package ahaslibrary;
+package tahaslibrary;
 
 public class _Rekursion {
 
@@ -14,5 +14,5 @@ public class _Rekursion {
         String s = Character.toString(spi);
         return str.charAt(0) + s + allStarRekursion(str.substring(1));
     }
-    
+
 }

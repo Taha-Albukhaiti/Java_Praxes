@@ -1,15 +1,14 @@
-package ahaslibrary;
+package tahaslibrary;
 
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import static ahaslibrary._Methods.maximum;
-import static ahaslibrary._Methods.wordAppend;
-import static ahaslibrary._MethodsWithFiles.countChars;
-import static ahaslibrary._MethodsWithFiles.readFrom;
-import static ahaslibrary._Rekursion.*;
+import static tahaslibrary._Methods.wordAppend;
+import static tahaslibrary._MethodsWithFiles.countChars;
+import static tahaslibrary._MethodsWithFiles.readFrom;
+import static tahaslibrary._Rekursion.allStarRekursion;
 
 public class MainDemo {
     public static void main(String[] args) {
