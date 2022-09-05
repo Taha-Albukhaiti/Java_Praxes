@@ -1,14 +1,7 @@
 package tahaslibrary;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-
-import static tahaslibrary._Methods.wordAppend;
-import static tahaslibrary._MethodsWithFiles.countChars;
-import static tahaslibrary._MethodsWithFiles.readFrom;
-import static tahaslibrary._Rekursion.allStarRekursion;
+import static tahaslibrary._Lambdas.blank;
+import static tahaslibrary._Lambdas.nthDigit;
 
 public class MainDemo {
     public static void main(String[] args) {
@@ -199,7 +192,7 @@ public class MainDemo {
         // => { "ein": 1, "kleines": 1, "beispiel": 1 }
 
 
-         */
+
         List<String> example = Arrays.asList("a", "b", "a");
         String results = wordAppend(example);
         System.out.println(results); // -> "a"
@@ -229,6 +222,54 @@ public class MainDemo {
         System.out.println(allStarRekursion("ab")); // => a*b
         System.out.println(allStarRekursion("ab", '-')); // => a-b
 
+
+        System.out.println(cleanString("yyzzza")); // => yza
+        System.out.println(cleanString("aabbbcdd")); // => abcd
+        System.out.println(cleanString("Hello")); // => Helo
+
+        List<Integer> values = Arrays.asList(1, 2, 3);
+        String operation = join(values, "+");
+        System.out.println(operation); // => 1+2+3
+        int sum = sumRekursiv(values);
+        System.out.println(operation + "=" + sum); // => 1+2+3=6
+
+        int n = countSubstring("Hello World", "Hello");
+        System.out.println(n); // => 1
+        System.out.println(countSubstring("Hello World", "l")); // => 3
+        System.out.println(countSubstring("xxx", "xx")); // => 2
+
+        int sum1 = sumDigits(123);
+        System.out.println(sum1); // => 6
+        System.out.println(sumDigits(99996)); // => 42
+        System.out.println(sumDigits(-123)); // => -6
+
+        List<String> examples = Arrays.asList(
+                "Dies", "ist", "nur", "ein", "Beispiel"
+        );
+        List<String> result = without.apply(examples, "nur");
+        System.out.println(result); // => ["Dies", "ist", "ein", "Beispiel"] }
+
+
+        List<_Student> students = Arrays.asList(
+                new _Student("Ali", 2.3),
+                new _Student("Taha", 2.1),
+                new _Student("Qusai", 2.1),
+                new _Student("Lara", 1.3),
+                new _Student("Ahmad", 1.2)
+        );
+
+        double averageNote = students.stream().
+                mapToDouble(_Student::getNote).average().orElse(-1);
+        System.out.println(averageNote);
+         */
+
+        int result2 = nthDigit.apply(4321, 0);
+        System.out.println(result2); // => 3
+        System.out.println(nthDigit.apply(4321, 5)); // => null
+
+        String result22 = blank.apply("aello World", "aell");
+        System.out.println(result22); // => _ell_ ___l_
+        System.out.println(blank.apply("abc def ghj", "a")); // => a__ ___ ___
 
     }
 }

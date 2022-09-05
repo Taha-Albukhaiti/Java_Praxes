@@ -2,11 +2,8 @@ package einsendeaufgabedrei;
 
 import java.util.HashMap;
 
-/**
- * @author Taha Al-Bukhaiti
- */
-public class TelefonMap {
-    private static HashMap<String, Telefoneintrag> eintraege = new HashMap<>();
+public class TelefonMapNeu {
+    private static HashMap<String, String> eintraege = new HashMap<>();
 
     /**
      * Leert die Liste
@@ -27,7 +24,7 @@ public class TelefonMap {
 
         if (name != null && nummer != null) {
             if (!eintraege.containsKey(name) && !eintraege.containsValue(nummer)) {
-                eintraege.put(name, new Telefoneintrag(name, nummer));
+                eintraege.put(name, nummer);
                 return true;
             }
         }
@@ -52,7 +49,7 @@ public class TelefonMap {
      */
     public boolean nummerAendern(String string, String string2) {
         if (eintraege.containsKey(string)) {
-            eintraege.replace(string, new Telefoneintrag(string, string2));
+            eintraege.replace(string, string2);
             return true;
         } else {
             return false;
@@ -73,20 +70,29 @@ public class TelefonMap {
      * @return
      */
     public String nummerSuchen(String string) {
-        if (!eintraege.containsKey(string)) return null;
-        return eintraege.get(string).getNummer();
+        return eintraege.get(string);
     }
 
+
     /**
-     * Nach dem Name bzw. Key anhand dessen Value suchen.
-     *
      * @param string
      * @return
      */
+            /*
+    public String nameSuchen(String string) {
+        Iterator it = eintraege.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry entry = (Map.Entry) it.next();
+            if (entry.getValue().equals(string))
+                return (String) entry.getKey();
+        }
+        return null;
+    }
+    */
     public String nameSuchen(String string) {
         String telefoneintrag;
         for (String str : eintraege.keySet()) {
-            telefoneintrag = eintraege.get(str).getNummer();
+            telefoneintrag = eintraege.get(str);
             if (telefoneintrag.equals(string)) {
                 return str;
             }

@@ -1,9 +1,6 @@
 package dateiunddatenstroeme;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Testen der Methoden der Klasse File.
@@ -21,13 +18,17 @@ public class DateiKopieren {
     public static void main(String[] args) throws IOException {
         // Uebergabeparameter pruefen
         if (args.length != 2) {
-            System.out.println("\nAufruf des Programms:\n" + "java DateiKopieren datei_1  datei_2");
+            System.out.println("""
+
+                    Aufruf des Programms:
+                    java DateiKopieren datei_1  datei_2""");
             System.out.println("\ndatei_1:  Datei, aus der gelesen wird.");
             System.out.println("datei_2:  Datei, in die geschrieben wird.");
             System.exit(1);
         }
         // Datei kopieren
-        kopiereDatei(args[0], args[1]);
+        // kopiereDatei(args[0], args[1]);
+        kopiereDateiII(args[0], args[1]);
     }
 
     /**
@@ -50,9 +51,37 @@ public class DateiKopieren {
             out.write(b, 0, len);
         }
         // Einfache Ein- und Ausgabestroeme schliessen
+
         out.close();
         in.close();
         // Benutzerinformation
         System.out.println("Datei '" + quellDatei + "' wurde in die Datei '" + zielDatei + "' kopiert.");
+    }
+
+    public static void kopiereDateiII(String quellDatei, String zielDatei) {
+        BufferedWriter in = null;
+        BufferedReader out = null;
+        try {
+            out = new BufferedReader(new FileReader(zielDatei));
+            in = new BufferedWriter(new FileWriter(quellDatei));
+            while (out.ready()) {
+                in.write(out.readLine());
+                in.newLine();
+                System.out.println("llll");
+            }
+
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (in != null) {
+                    in.close();
+                    out.close();
+                }
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 }

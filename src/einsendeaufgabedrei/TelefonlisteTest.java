@@ -13,8 +13,9 @@ import static org.junit.Assert.*;
 @RunWith(Enclosed.class)
 public class TelefonlisteTest {
 
-	//private static Telefonliste telefonliste = new Telefonliste();
+    //private static Telefonliste telefonliste = new Telefonliste();
     private static TelefonMap telefonliste = new TelefonMap();
+    //private static TelefonlisteStreams telefonliste = new TelefonlisteStreams();
 
     public static class TelefonlisteTestLeereListe {
 
