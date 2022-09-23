@@ -1,14 +1,12 @@
 package xml;
 
-import java.io.File;
-import java.util.Scanner;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import java.io.File;
 
 /**
  * Klasse zum Ausgeben eines XML-Dokuments auf der Konsole unter der Benutzung
@@ -31,29 +29,28 @@ public class DOMAusgabe {
         // Uebergebene XML-Datei parsen
         Document dokument = builder.parse(new File(XMLDateiName));
         // DOM Baum durchlaufen und ausgeben
-    
-        
-        
+
+
         traversieren(dokument.getDocumentElement(), "");
     }
 
     /**
      * Methode zum Durchlaufen und Ausgeben des DOM Baums.
      *
-     * @param e aktuelles Element
+     * @param e     aktuelles Element
      * @param ebene String fuer die Einrueckung der Ebenen
      */
     private static void traversieren(Element e, String ebene) {
         System.out.println(ebene + e.getNodeName());
-        
-      
-       //Scanner s = new Scanner(System.in);
+
+
+        //Scanner s = new Scanner(System.in);
         //System.out.println("Wollen Sie die Private oder geschaeftliche Daten? ");
-       
+
         //String cc = s.next();
         //if(e.getAttributeNode(ebene).equals(cc)) {}
-       	
-       
+
+
         // Kindelemente des uebergebenen Elements ermitteln
         NodeList children = e.getChildNodes();
         
@@ -75,6 +72,6 @@ public class DOMAusgabe {
                 System.out.println(ebene + knoten);
         }
         }*/
-        }
-    
+    }
+
 }

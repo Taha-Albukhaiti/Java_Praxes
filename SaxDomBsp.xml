@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<buch auflage="2">
+
+  <!-- Ein Beispiel fuer eine XML-Datei -->
+
+  <titel>C fuer Windows</titel>
+  <autor>
+    <name>Erlenkuetter</name>
+    <vorname>Helmut</vorname>
+  </autor>
+  <autor>
+    <name>Reher</name>
+    <vorname>Volker</vorname>
+  </autor>
+  <verlag>Rowohlt</verlag>
+  <isbn>3-499-19234-9</isbn>
+  <seiten>240</seiten>
+</buch>

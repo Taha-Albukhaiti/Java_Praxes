@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<Adressbuch>
+    <Kontakt typ="privat">
+        <Vorname>Max</Vorname>
+        <Nachname>Mustermann</Nachname>
+        <Strasse>Bereitestrasse 23</Strasse>
+        <PLZ>23552</PLZ>
+        <Ort>Luebeck</Ort>
+        <Land>Deutschland</Land>
+
+    </Kontakt>
+    <Kontakt typ="privat">
+        <Vorname>Sandra</Vorname>
+        <Nachname>Tester</Nachname>
+        <Strasse>Kasddstrasse 21</Strasse>
+        <PLZ>13848</PLZ>
+        <Ort>Kiel</Ort>
+        <Land>Deutschland</Land>
+    </Kontakt>
+
+    <Kontakt typ="geschaeftlich">
+        <Vorname>Lara</Vorname>
+        <Nachname>Mueller</Nachname>
+        <Strasse>Bereitestrasse 3</Strasse>
+        <PLZ>143134</PLZ>
+        <Ort>Muenschen</Ort>
+        <Land>Deutschland</Land>
+    </Kontakt>
+
+    <Kontakt typ="geschaeftlich">
+        <Vorname>Mark</Vorname>
+        <Nachname>Schmiedt</Nachname>
+        <Strasse>Holala 3</Strasse>
+        <PLZ>134124</PLZ>
+        <Ort>Paris</Ort>
+        <Land>Frankreich</Land>
+    </Kontakt>
+</Adressbuch>

@@ -1,7 +1,6 @@
 package tahaslibrary;
 
-import static tahaslibrary._Lambdas.blank;
-import static tahaslibrary._Lambdas.nthDigit;
+import static tahaslibrary._Lambdas.*;
 
 public class MainDemo {
     public static void main(String[] args) {
@@ -270,6 +269,24 @@ public class MainDemo {
         String result22 = blank.apply("aello World", "aell");
         System.out.println(result22); // => _ell_ ___l_
         System.out.println(blank.apply("abc def ghj", "a")); // => a__ ___ ___
+
+        String resultl = blank2.apply("Hello World", "ell");
+        System.out.println(resultl); // => _ell_ ___l_
+        System.out.println(blank2.apply("abc def ghj", "a")); // => a__ ___ ___
+
+        System.out.println(isPrim.test(4)); // => false
+        System.out.println(isPrim.test(7)); // => true
+/*
+        List<Integer> result12 = primes.apply(20);
+        System.out.println(result12); // => [2, 3, 5, 7, 11, 13, 17, 19]
+        System.out.println(primes.apply(3)); // => [2]
+        String output = columnize.apply(result12, 3);
+        System.out.println(output);
+
+ */
+//2 3 5
+//7 11 13
+//17 19
 
     }
 }
