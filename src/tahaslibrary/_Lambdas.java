@@ -3,6 +3,7 @@ package tahaslibrary;
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -81,12 +82,17 @@ public class _Lambdas {
 
     public static Predicate<Integer> isPrim = p -> p % 2 == 0 ? true : false;
 
-    // public static Function<Integer, List<Integer>> primes = p ->
-    //       IntStream.range(0, p).sequential()
-    //             .filter(i -> !(i % 2 == 0) && (i % i == 0));
+    public static Function<Integer, List<Integer>> primes = p ->
+            IntStream.rangeClosed(1, p).
+                    boxed().
+                    map(i -> (i % 2 == 0) && (i % i == 0) ? i : 0).
+                    filter(i -> i > 0).
+                    collect(Collectors.toList());
 
     public static BiFunction<List<?>, Integer, String> columnize =
-            (values, rows) -> "to be done";
+            (values, rows) -> values.stream().map(Object::toString).toList().toString();
+    //.takeWhile(s -> values.g == rows ? true : false)
+    //.forEach(System.out::println);
 }
 
 

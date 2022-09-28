@@ -1,5 +1,7 @@
 package tahaslibrary;
 
+import java.util.List;
+
 import static tahaslibrary._Lambdas.*;
 
 public class MainDemo {
@@ -276,17 +278,15 @@ public class MainDemo {
 
         System.out.println(isPrim.test(4)); // => false
         System.out.println(isPrim.test(7)); // => true
-/*
+
         List<Integer> result12 = primes.apply(20);
         System.out.println(result12); // => [2, 3, 5, 7, 11, 13, 17, 19]
         System.out.println(primes.apply(3)); // => [2]
         String output = columnize.apply(result12, 3);
         System.out.println(output);
-
- */
-//2 3 5
-//7 11 13
-//17 19
+        //2 3 5
+        //7 11 13
+        //17 19
 
     }
 }
