@@ -22,6 +22,7 @@ public class MainDemo {
         System.out.println(endUp("Hi there")); // => "Hi thERE"
         System.out.println(endUp("hi")); // => "HI"
         System.out.println("");
+        s
 
         String result1 = stringX("xxHix");
         System.out.println(result1); // => xHix
