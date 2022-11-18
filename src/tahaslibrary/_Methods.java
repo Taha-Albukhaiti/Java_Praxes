@@ -22,7 +22,7 @@ public class _Methods {
     public static String endUp(String s) {
         String m;
         if (s.length() >= 3) {
-            m = s.substring(s.length() - 3, s.length());
+            m = s.substring(s.length() - 3);
             return s.substring(0, s.length() - 3) + m.toUpperCase();
         } else m = s.toUpperCase();
         return m;

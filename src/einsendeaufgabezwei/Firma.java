@@ -52,7 +52,7 @@ public class Firma {
                 if (line.equals("K")) {
                     allePersonen[zaehler++] = new Kunde(br.readLine(), br.readLine(), br.readLine(), Integer.parseInt(br.readLine()));
                 } else if (line.equals("A")) {
-                    allePersonen[zaehler++] = new Angestellte(br.readLine(), br.readLine(), br.readLine(), Float.parseFloat(br.readLine()));
+                    allePersonen[zaehler++] = new Angestellte(br.readLine(), br.readLine(), br.readLine(), (Math.round(Float.parseFloat(br.readLine()) * 100) / 100F));
                 }
             }
         } catch (Exception e) {
