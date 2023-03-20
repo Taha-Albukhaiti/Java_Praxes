@@ -131,7 +131,6 @@ public class DateiManager {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 		 */
 
 
